@@ -1,0 +1,59 @@
+﻿ @using KantanBlog001.Models
+
+@model KantanBlog001.Models.Article
+
+@{
+    ViewData["Title"] = "ArticleView";
+}
+
+<!DOCTYPE html>
+
+
+    <!--本文-->
+<div class="layout clearfix">
+        <div class="hidari">
+        <pre>
+
+
+            <h6>カテゴリー一覧</h6>
+            
+            <dd>@Html.DisplayFor(model => model.Category)</dd>
+        </pre>
+        </div>
+        <div class="center">
+
+
+        <dl class="row">
+            
+            <h3>
+            <dd>@Html.DisplayFor(model => model.Title)</dd>
+            </h3>
+            <dd>@Html.DisplayFor(model => model.Text)</dd>
+            <pre>
+
+
+            <dt>カテゴリ： @Html.DisplayFor(model => model.Category)</dt>
+            </pre>
+        </dl>
+        
+               
+        </div>
+        <div class="migi">
+            <p>ここにカレンダーを表示</p>
+        </div>
+        
+    
+    
+ </div>
+
+<div style="text-align:center;">
+    @* リンク未設定 *@
+    <a asp-action="Index">コメント一覧へ</a>
+</div>
+
+            @section Scripts {
+                @{
+                    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+                }
+            }
+

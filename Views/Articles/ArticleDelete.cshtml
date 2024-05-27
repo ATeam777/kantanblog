@@ -1,0 +1,58 @@
+﻿@model KantanBlog001.Models.Article
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="tcreate">削除ページ</h>
+
+<h3 class="tcreate">本当に記事を削除しますか？</h3>
+<div class="tcreate">
+    <hr />
+    <dl>
+        <dt class = "col-sm-2">
+            作成日時
+        </dt>
+        <!--
+        <dd class = "col-sm-10">
+            
+        </dd>
+            -->
+        <dt class = "col-sm-2">
+            タイトル
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+           カテゴリー
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt class = "col-sm-2">
+            本文
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+       @*  <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Create_Time)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Create_Time)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Update_Time)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Update_Time)
+        </dd> *@
+    </dl>
+    
+    <form asp-action="ArticleDelete">
+        <span><input type="submit" value="削除" class="input-style2"/> </span>
+        <span><a asp-action="Index" 　class="input-style3">ホームへ戻る</a></span>
+        <input type="hidden" asp-for="ArticleId" />
+    </form>
+</div>

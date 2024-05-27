@@ -1,0 +1,43 @@
+﻿@model KantanBlog001.Models.Article
+
+@{
+    ViewData["Title"] = "記事新規作成";
+}
+
+<h1 class="tcreate">記事新規作成</h1>
+
+@* <h4>Article</h4> *@
+<hr />
+<div>
+    <div class="tcreate">
+        <form asp-action="ArticleCreate">
+            <div asp-validation-summary="ModelOnly" ></div>
+            <div>
+                <p>タイトル</p>
+                <input asp-for="Title" placeholder="タイトル" />
+                <span asp-validation-for="Title"></span>
+            </div>
+            <div>
+                <p>カテゴリー</p>
+                <input asp-for="Category" placeholder="カテゴリー" />
+                <span asp-validation-for="Category"></span>
+            </div>
+            <div >
+                <p>記事内容</p>
+                <textarea asp-for="Text" placeholder="本文"></textarea>
+                <span asp-validation-for="Text"></span>
+            </div>
+            <div>
+                <span><input type="submit" value="投稿" class="input-style2" /></span>
+                <span><a asp-action="Index" 　class="input-style3">ホームへ戻る</a></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

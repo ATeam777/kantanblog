@@ -1,0 +1,27 @@
+﻿@page
+@model PersonalDataModel
+@{
+    ViewData["Title"] = "Personal Data";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+<h3>アカウントデータ</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <p>アカウント情報のダウンロードや削除が出来ます。</p>
+        <p>
+            <strong>削除を選択するとアカウントデータは完全に削除され、復元することはできません。注意してください</strong>
+        </p>
+        <form id="download-data" asp-page="DownloadPersonalData" method="post">
+            <button class="btn btn-primary" type="submit">ダウンロード</button>
+        </form>
+        <p>
+            <a id="delete" asp-page="DeletePersonalData" class="btn btn-danger">削除</a>
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

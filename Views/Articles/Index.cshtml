@@ -1,0 +1,52 @@
+﻿@model PaginatedList<KantanBlog001.Models.Article>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div style="text-align: center;">
+    <h1>ブロガー専用　記事一覧</h1>
+</div>
+<br>
+<p class="a-create">
+    <a asp-action="ArticleCreate">記事新規作成</a>
+</p>
+
+
+
+<table class="table_design09">
+    <thead>
+        <tr>
+            <th>タイトル</th>
+            <th>カテゴリー</th>
+            <th>作成日時</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @* いったん飛ぶページをeditにしています *@
+                    <a asp-action="Details" asp-route-id="@item.ArticleId">@Html.DisplayFor(modelItem => item.Title)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Create_Time)
+                </td>
+                <td>
+                    <a asp-action="ArticleEdit" asp-route-id="@item.ArticleId" class="it-1">編集</a>
+                    <a asp-action="ArticleDelete" asp-route-id="@item.ArticleId" class="it-2">削除</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br>
+<div class="pagenation">
+    <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-default @(Model.HasPreviousPage ? "" : "disabled")">前へ</a>
+    <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-default @(Model.HasNextPage ? "" : "disabled")">次へ</a>
+</div>
+
