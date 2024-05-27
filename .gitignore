@@ -3,8 +3,8 @@
 .vs/
 .bin/
 .obj/
-.bin/Debug
-.obj/Debug
+.bin/Debug/*
+.obj/Debug/*
 
 *.dll
 *.exe
