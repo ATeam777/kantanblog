@@ -22,6 +22,12 @@ body {
   margin-bottom: 60px;
 }
 
+/* Homeボタン */
+.btn.btn-secondary.btn-lg.active.menu-button{
+    width: 225px;
+    height: 50px;
+}
+
 /*改変部分ここから*/
 /*一覧ページ*/
 .itirans {
@@ -29,7 +35,7 @@ body {
     display: flex;
     background-color: #edf6f1;
     margin: 1%;
-    padding:1%;
+    padding: 1%;
     font-size: 1.5rem;
 }
 .itirans2 {
