@@ -3,8 +3,11 @@
 .vs/
 .bin/
 .obj/
+
 .bin/Debug/*
 .obj/Debug/*
+
+bin/Debug/net8.0/KantanBlog001.pdb
 
 *.dll
 *.exe
