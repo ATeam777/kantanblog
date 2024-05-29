@@ -9,7 +9,12 @@
 .bin/Debug/*
 .obj/Debug/*
 
+obj/Debug/
+
+
 bin/Debug/net8.0/KantanBlog001.pdb
+obj/project.assets.json
+obj/project.nuget.cache
 
 *.dll
 *.exe
