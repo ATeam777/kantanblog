@@ -53,14 +53,27 @@ namespace KantanBlog001.Controllers
         }
 
         // GET: Articles/UserArticleList
+        // 閲覧者：記事一覧
         //川村：ユーザー専用ページ用のメソッドを追加
-        public async Task<IActionResult> UserArticleList(int? pageNumber)
+        public async Task<IActionResult> UserArticleList(
+            int? pageNumber, string? category)
         {
             int pageSize = 5; // 1ページに表示するアイテム数
 
             // IQueryable<T> を取得
-            var articles = _context.Article.AsQueryable();
-            
+            IQueryable<Article> articles;
+            if (category == null)
+            {
+                //カテゴリーがない場合、全件検索
+                articles = _context.Article.AsQueryable();
+            }
+            else
+            {
+                //カテゴリーが存在する場合、カテゴリ検索を行う
+                articles = _context.Article.AsQueryable()
+                    .Where(a => a.Category == category);
+            }
+
             // ページ番号に基づいて記事を取得
             var paginatedArticles = await PaginatedList<Article>.CreateAsync(articles.AsNoTracking(), pageNumber ?? 1, pageSize);
 
@@ -68,12 +81,13 @@ namespace KantanBlog001.Controllers
         }
 
         // GET: Articles/index
+        // ブロガー管理者：記事一覧
         //野中 ここでページの表示数を変更できる
         // GET: Articles
         public async Task<IActionResult> Index(int? pageNumber)
         {
             int pageSize = 5; // 1ページに表示するアイテム数
-            //var articles = _context.Article.AsQueryable();
+            
             var articles = _context.Article
                 .AsQueryable().Where(a => a.Email == User.Identity.Name);
 

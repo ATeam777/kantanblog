@@ -23,11 +23,11 @@
         <ui>
             @foreach (var item in categoryCount)
             {
-                <li>@item.Category (@item.CategoryGroupCount)</li>
+                <a href="@Url.Action("UserArticleList", "Articles", new { category = item.Category })">
+                    <li>@item.Category (@item.CategoryGroupCount)</li>
+                </a>
             }
         </ui>
-        
-    @* <dd>@Html.DisplayFor(model => model.Category)</dd> *@
     </div>
 
     <div class="center">
