@@ -27,7 +27,6 @@
         @foreach (var item in Model) {
             <tr>
                 <td>
-                    @* いったん飛ぶページをeditにしています *@
                     <a asp-action="ArticleView" asp-route-id="@item.ArticleId">@Html.DisplayFor(modelItem => item.Title)</a>
                 </td>
                 <td>

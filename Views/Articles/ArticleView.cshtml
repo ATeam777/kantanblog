@@ -1,46 +1,53 @@
-﻿ @using KantanBlog001.Models
+﻿@using KantanBlog001.Models
+@using KantanBlog001.ViewModels
 
 @model KantanBlog001.Models.Article
 
 @{
     ViewData["Title"] = "ArticleView";
+
+    List<CategoryCount> categoryCount = null;
+    if (ViewData["categoryCount"] != null)
+        categoryCount = (List<CategoryCount>)ViewData["categoryCount"];
+
 }
 
 <!DOCTYPE html>
 
 
-    <!--本文-->
+<!--本文-->
 <div class="layout clearfix">
-        <div class="hidari">
+
+    <div class="hidari">
+        <h6><b>カテゴリー一覧</b></h6>
+        <ui>
+            @foreach (var item in categoryCount)
+            {
+                <li>@item.Category (@item.CategoryGroupCount)</li>
+            }
+        </ui>
+        
+    @* <dd>@Html.DisplayFor(model => model.Category)</dd> *@
+    </div>
+
+    <div class="center">
+    <dl class="row">
+
+        <h3>
+        <dd>@Html.DisplayFor(model => model.Title)</dd>
+        <hr style="height:5px; background-color:#000000;">
+        </h3>
+        <pre style="white-space: pre-wrap;">
+        <dd>@Html.DisplayFor(model => model.Text)</dd>
+        </pre>
         <pre>
 
 
-            <h6>カテゴリー一覧</h6>
-            
-            <dd>@Html.DisplayFor(model => model.Category)</dd>
+        <dt>カテゴリ： @Html.DisplayFor(model => model.Category)</dt>
         </pre>
-        </div>
-        <div class="center">
-
-
-        <dl class="row">
-
-            <h3>
-            <dd>@Html.DisplayFor(model => model.Title)</dd>
-            <hr style="height:5px; background-color:#000000;">
-            </h3>
-            <pre style="white-space: pre-wrap;">
-            <dd>@Html.DisplayFor(model => model.Text)</dd>
-            </pre>
-            <pre>
-
-
-            <dt>カテゴリ： @Html.DisplayFor(model => model.Category)</dt>
-            </pre>
-        </dl>
-
-
+    </dl>
     </div>
+
     <div class="migi">
         <p>ここにカレンダーを表示</p>
     </div>
@@ -54,9 +61,9 @@
     <a asp-action="Index">コメント一覧へ</a>
 </div>
 
-            @section Scripts {
-                @{
-                    await Html.RenderPartialAsync("_ValidationScriptsPartial");
-                }
-            }
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
 

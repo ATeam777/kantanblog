@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KantanBlog001.Data;
 using KantanBlog001.Models;
+using KantanBlog001.ViewModels;
 
 namespace KantanBlog001.Controllers
 {
@@ -257,8 +258,22 @@ namespace KantanBlog001.Controllers
                 return NotFound();
             }
 
+            //記事取得
             var article = await _context.Article
                 .FirstOrDefaultAsync(m => m.ArticleId == id);
+
+            //カテゴリーを集計する
+            List<CategoryCount> categoryCount = await _context.Article
+                .GroupBy(g => g.Category)
+                .OrderBy(o => o.Key)
+                .Select(group => new CategoryCount
+                {
+                    Category = group.Key,
+                    CategoryGroupCount = group.Count()
+                }).ToListAsync();
+
+            ViewData["categoryCount"] = categoryCount;
+
             if (article == null)
             {
                 return NotFound();
