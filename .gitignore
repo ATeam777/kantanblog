@@ -13,6 +13,7 @@
 obj/Debug/
 
 bin/Debug/net8.0/KantanBlog001.pdb
+bin/Debug/net8.0/KantanBlog001.staticwebassets.runtime.json
 
 obj/project.assets.json
 obj/project.nuget.cache
