@@ -28,7 +28,7 @@
             <tr>
                 <td>
                     @* いったん飛ぶページをeditにしています *@
-                    <a asp-action="Details" asp-route-id="@item.ArticleId">@Html.DisplayFor(modelItem => item.Title)</a>
+                    <a asp-action="ArticleView" asp-route-id="@item.ArticleId">@Html.DisplayFor(modelItem => item.Title)</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Category)
