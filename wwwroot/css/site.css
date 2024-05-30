@@ -15,6 +15,7 @@ html {
 html {
   position: relative;
   min-height: 100%;
+  width:100%;
 }
 
 
@@ -382,9 +383,8 @@ body {
 }
 
 .layout {
-    margin-right: auto;
+    width:100%;
     margin-bottom: 0px;
-    margin-left: auto;
     padding: 0px;
     display: flex;
 }
@@ -420,9 +420,10 @@ body {
 .migi {
     /* height: auto;*/
     width: 20%;
-    display: flex;
+    /*display: flex;*/
+    flex-flow:column;
     text-align: center;
-    /*background-color: #92e29d;*/
+    background-color: #92e29d;
     float: right;
 }
 
@@ -435,4 +436,82 @@ body {
 /*記事削除ページ*/
 .tcreate hr {
     margin-right: 40%;
+}
+
+
+/*カレンダー*/
+#header {
+    text-align: center;
+    font-size: 24px;
+    width: 100%;
+    margin: 1rem 0 0;
+}
+
+/*カレンダー*/
+#calendar {
+    text-align: center;
+    width: 100%;
+}
+
+table {
+    outline: 2px solid #ddd;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    color: #000;
+}
+
+th, td {
+    outline: 1px solid #ddd;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+    /*日曜日*/
+    td:first-child {
+        color: red;
+    }
+    /*土曜日*/
+    td:last-child {
+        color: blue;
+    }
+    /*前後月の日付*/
+    td.disabled {
+        color: #ccc;
+    }
+    /*本日*/
+    td.today {
+        background-color: #D65E72;
+        color: #fff;
+    }
+
+/*ボタン*/
+#next-prev-button {
+    position: relative;
+}
+
+    #next-prev-button button {
+        cursor: pointer;
+        background: #B78D4A;
+        color: #fff;
+        border: 1px solid #B78D4A;
+        border-radius: 4px;
+        font-size: 1rem;
+        padding: 0.5rem 2rem;
+        margin: 1rem 0;
+    }
+
+        #next-prev-button button:hover {
+            background-color: #D4BB92;
+            border-color: #D4BB92;
+        }
+
+#prev {
+    float: left;
+}
+
+#next {
+    float: right;
 }
