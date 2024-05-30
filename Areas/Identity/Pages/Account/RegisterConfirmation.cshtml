@@ -4,13 +4,12 @@
     ViewData["Title"] = "Register confirmation";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1>アカウント承認</h1>
 @{
     if (@Model.DisplayConfirmAccountLink)
     {
 <p>
-    This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
-    Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
+    まだ仮登録状態です。 【こちらをクリック】を押して、本登録を完了してください <a id="confirm-link" href="@Model.EmailConfirmationUrl">こちらをクリック</a>
 </p>
     }
     else
