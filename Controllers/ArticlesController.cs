@@ -280,7 +280,6 @@ namespace KantanBlog001.Controllers
 
             if (id == null)
             {
-                //return NotFound();
                 //IDがNULLの場合、IDのMAX値を取ってくる
                 id = await _context.Article.MaxAsync(a => a.ArticleId);
             }
