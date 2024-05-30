@@ -45,7 +45,7 @@
 </table>
 <br>
 <div class="pagenation">
-    <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-default @(Model.HasPreviousPage ? "" : "disabled")">前へ</a>
-    <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-default @(Model.HasNextPage ? "" : "disabled")">次へ</a>
+    <a asp-action="BloggerArticleList" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-default @(Model.HasPreviousPage ? "" : "disabled")">前へ</a>
+    <a asp-action="BloggerArticleList" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-default @(Model.HasNextPage ? "" : "disabled")">次へ</a>
 </div>
 
