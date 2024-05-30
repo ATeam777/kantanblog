@@ -277,9 +277,12 @@ namespace KantanBlog001.Controllers
         // GET: Articles/ArticleView
         public async Task<IActionResult> ArticleView(int? id)
         {
+
             if (id == null)
             {
-                return NotFound();
+                //return NotFound();
+                //IDがNULLの場合、IDのMAX値を取ってくる
+                id = await _context.Article.MaxAsync(a => a.ArticleId);
             }
 
             //記事取得

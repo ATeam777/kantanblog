@@ -49,7 +49,7 @@ namespace KantanBlog001
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Articles}/{action=ArticleView}/{id?}");
             app.MapRazorPages();
 
             app.Run();
