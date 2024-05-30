@@ -64,4 +64,11 @@
     <None Include="Areas\Identity\Pages\Account\_ViewImports.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Articles\BloggerArticleList.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

@@ -49,7 +49,7 @@ namespace KantanBlog001.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(BloggerArticleList));
         }
 
         // GET: Articles/UserArticleList
@@ -80,11 +80,11 @@ namespace KantanBlog001.Controllers
             return View(paginatedArticles); // ページネーションされた記事一覧をビューに渡す
         }
 
-        // GET: Articles/index
+        // GET: Articles/BloggerArticleList
         // ブロガー管理者：記事一覧
         //野中 ここでページの表示数を変更できる
         // GET: Articles
-        public async Task<IActionResult> Index(int? pageNumber)
+        public async Task<IActionResult> BloggerArticleList(int? pageNumber)
         {
             int pageSize = 5; // 1ページに表示するアイテム数
             
@@ -138,7 +138,7 @@ namespace KantanBlog001.Controllers
 
                 _context.Add(article);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(BloggerArticleList));
             }
             return View(article);
         }
@@ -205,7 +205,7 @@ namespace KantanBlog001.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(BloggerArticleList));
             }
             return View(article);
         }
@@ -259,7 +259,7 @@ namespace KantanBlog001.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(BloggerArticleList));
             }
             return View(article);
         }
@@ -349,7 +349,7 @@ namespace KantanBlog001.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(BloggerArticleList));
         }
 
         private bool ArticleExists(int id)
