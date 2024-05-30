@@ -33,11 +33,11 @@
         <ui>
             @foreach (var item in categoryCount)
             {
-                <li>@item.Category (@item.CategoryGroupCount)</li>
+                <a href="@Url.Action("UserArticleList", "Articles", new { category = item.Category })">
+                    <li>@item.Category (@item.CategoryGroupCount)</li>
+                </a>
             }
         </ui>
-        
-    @* <dd>@Html.DisplayFor(model => model.Category)</dd> *@
     </div>
 
     <div class="center">
@@ -98,7 +98,7 @@
 
 <div style="text-align:center;">
     @* リンク未設定 *@
-    <a asp-action="Index">コメント一覧へ</a>
+    <a asp-action="Comment">コメント一覧へ</a>
 </div>
 
 @section Scripts {
