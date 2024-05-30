@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using KantanBlog001.Data;
 using KantanBlog001.Models;
 using KantanBlog001.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KantanBlog001.Controllers
 {
@@ -21,6 +22,7 @@ namespace KantanBlog001.Controllers
         }
 
         // GET: Articles/Delete/5
+        [Authorize]
         public async Task<IActionResult> ArticleDelete(int? id)
         {
             if (id == null)
@@ -38,6 +40,7 @@ namespace KantanBlog001.Controllers
             return View(article);
         }
         // POST: Articles/Delete/5
+        [Authorize]
         [HttpPost, ActionName("ArticleDelete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ArticleDeleteConfirmed(int id)
@@ -84,6 +87,7 @@ namespace KantanBlog001.Controllers
         // ブロガー管理者：記事一覧
         //野中 ここでページの表示数を変更できる
         // GET: Articles
+        [Authorize]
         public async Task<IActionResult> BloggerArticleList(int? pageNumber)
         {
             int pageSize = 5; // 1ページに表示するアイテム数
@@ -116,6 +120,7 @@ namespace KantanBlog001.Controllers
         }
 
         // GET: Articles/ArticleCreate
+        [Authorize]
         public IActionResult ArticleCreate()
         {
             return View();
@@ -124,6 +129,7 @@ namespace KantanBlog001.Controllers
         // POST: Articles/ArticleCreate
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ArticleCreate(
@@ -143,6 +149,7 @@ namespace KantanBlog001.Controllers
             return View(article);
         }
         // GET: Articles/ArticleEdit/5
+        [Authorize]
         public async Task<IActionResult> ArticleEdit(int? id)
         {
             if (id == null)
@@ -161,6 +168,7 @@ namespace KantanBlog001.Controllers
         // POST: Articles/ArticleEdit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ArticleEdit(int id, [Bind("ArticleId," +
@@ -211,6 +219,7 @@ namespace KantanBlog001.Controllers
         }
 
         // GET: Articles/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -229,6 +238,7 @@ namespace KantanBlog001.Controllers
         // POST: Articles/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ArticleId," +
@@ -320,6 +330,7 @@ namespace KantanBlog001.Controllers
 
 
         // GET: Articles/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -338,6 +349,7 @@ namespace KantanBlog001.Controllers
         }
 
         // POST: Articles/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
