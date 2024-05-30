@@ -23,13 +23,18 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">🏡 Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Articles" asp-action="ArticleView"> 🏡 </a>
+                        </li>
+                        <!--
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                        -->
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">管理画面</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Articles" asp-action="Index">記事入力</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Articles" asp-action="BloggerArticleList">記事リスト</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Comment" asp-action="Index">コメント入力</a>
