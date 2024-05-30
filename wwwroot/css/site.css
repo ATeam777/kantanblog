@@ -453,8 +453,8 @@ body {
     width: 100%;
 }
 
-table {
-    outline: 2px solid #ddd;
+.tableborder {
+    outline: 2px solid gray;/*横線*/
     border-collapse: collapse;
     width: 100%;
 }
@@ -463,8 +463,8 @@ th {
     color: #000;
 }
 
-th, td {
-    outline: 1px solid #ddd;
+.thtdborder {
+    outline: 1px solid gray;/*縦線*/
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
@@ -479,7 +479,7 @@ th, td {
     }
     /*前後月の日付*/
     td.disabled {
-        color: #ccc;
+        color: #90a3c8;
     }
     /*本日*/
     td.today {

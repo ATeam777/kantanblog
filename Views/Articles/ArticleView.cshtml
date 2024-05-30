@@ -49,17 +49,17 @@
     </div>
 
     <div class="migi">
-        <!-- xxxx年xx月を表示 -->
-        <h1 id="header"></h1>
+       <!-- xxxx年xx月を表示 -->
+    <h1 id="header"></h1>
 
-        <!-- ボタンクリックで月移動 -->
-        <div id="next-prev-button">
-            <button id="prev" onclick="prev()">‹</button>
-            <button id="next" onclick="next()">›</button>
-        </div>
+    <!-- ボタンクリックで月移動 -->
+    <div id="next-prev-button">
+        <button id="prev" onclick="prev()">‹</button>
+        <button id="next" onclick="next()">›</button>
+    </div>
 
-        <!-- カレンダー -->
-        <div id="calendar"></div>
+    <!-- カレンダー -->
+    <div id="calendar"></div>
     </div>
 
 
@@ -68,7 +68,7 @@
 
 <div style="text-align:center;">
     @* リンク未設定 *@
-    <a asp-action="Comment">コメント一覧へ</a>
+    <a asp-controller="Comment" asp-action="Index">コメント一覧へ</a>
 </div>
 
 @section Scripts {
