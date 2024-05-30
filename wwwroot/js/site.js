@@ -48,7 +48,9 @@ function createProcess(year, month) {
     for (var i = 0; i < row; i++) {
         calendar += "<tr>";
         // 1colum単位で設定
+
         for (var j = 0; j < week.length; j++) {
+
             if (i == 0 && j < startDayOfWeek) {
                 // 1行目で1日まで先月の日付を設定
                 calendar += "<td class='disabled thtdborder'>" + (lastMonthEndDate - startDayOfWeek + j + 1) + "</td>";
@@ -59,6 +61,7 @@ function createProcess(year, month) {
             } else {
                 // 当月の日付を曜日に照らし合わせて設定
                 count++;
+                /*calendar += "<a asp-page='ArticleView' asp-route-date='@item => item.Day ==count'>";*/
                 if(year == today.getFullYear()
                   && month == (today.getMonth())
                   && count == today.getDate()){
@@ -66,6 +69,9 @@ function createProcess(year, month) {
                 } else {
                     calendar += "<td class='thtdborder'>" + count + "</td>";
                 }
+                /*calendar += "</a>":*/
+                calendar += "</td>";
+
             }
         }
         calendar += "</tr>";
