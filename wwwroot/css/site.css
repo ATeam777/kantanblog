@@ -50,8 +50,26 @@ body {
     margin-right: 5%;
 }
 
-/*本文へのリンク*/
+/* コメント一覧 */
+.comment-list-content {
+    width: 70%;
+    margin: 0 auto;
+}
+.comment-list-title {
+    font-family: "Yu Gothic Medium", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: darkgreen;
+}
+.comment-list-text {
+    font-family: "Yu Gothic Medium", sans-serif;
+    font-size: 16px;
+    text-indent: 0.5em;
+    margin-bottom: 25px;
+}
 
+
+/*本文へのリンク*/
 .asp-title a {
     text-decoration: none;
     color: black;
@@ -106,6 +124,25 @@ body {
     color: white;
     background-color: gray;
 }
+
+/*コメント新規作成ボタン*/
+.a-create-comment {
+    text-align: right;
+}
+
+.a-create-comment a {
+    padding: 10px;
+    color: black;
+    border-radius: 1%;
+    background-color: #ceb59d;
+    text-decoration: none;
+}
+
+.a-create-comment :hover {
+    color: white;
+    background-color: gray;
+}
+
 
 /*こぴぺ　テーブル*/
 /*全体デザイン*/

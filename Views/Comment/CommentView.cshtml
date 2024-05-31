@@ -1,0 +1,36 @@
+﻿@model IEnumerable<KantanBlog001.Models.Comment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div style="text-align: center;">
+    <h1>コメント一覧</h1>
+</div>
+
+
+<div class="comment-list-content">
+    <br>
+    <p class="a-create-comment">
+        <a asp-action="CommentCreate">コメント投稿</a>
+    </p>
+    <br>
+    @foreach (var item in Model)
+    {
+
+    @* @Html.DisplayFor(modelItem => item.Article.Title) *@
+
+        <div class="comment-list-title">
+            @Html.DisplayFor(modelItem => item.UserName)
+        </div>
+        <div class="comment-list-text">
+            @Html.DisplayFor(modelItem => item.CommentText)
+        </div>
+    }
+    <br>
+    <p class="a-create-comment">
+        <a asp-controller="Articles" asp-action="UserArticleList">記事リストに戻る</a>
+    </p>
+</div>
+
+

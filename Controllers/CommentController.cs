@@ -19,8 +19,15 @@ namespace KantanBlog001.Controllers
             _context = context;
         }
 
-        // GET: Comment
+        // GET: Comment/Index
         public async Task<IActionResult> Index()
+        {
+            var applicationDbContext = _context.Comment.Include(c => c.Article);
+            return View(await applicationDbContext.ToListAsync());
+        }
+
+        // GET: Comment/CommentView
+        public async Task<IActionResult> CommentView()
         {
             var applicationDbContext = _context.Comment.Include(c => c.Article);
             return View(await applicationDbContext.ToListAsync());
