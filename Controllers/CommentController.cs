@@ -82,8 +82,6 @@ namespace KantanBlog001.Controllers
                 return NotFound();
             }
 
-            //ViewData["ArticleId"] = new SelectList(_context.Article, "ArticleId","Title");
-
             ViewData["ArticleId"] = articleId;
             return View();
 
@@ -105,8 +103,7 @@ namespace KantanBlog001.Controllers
 
                 _context.Add(comment);
                 await _context.SaveChangesAsync();
-                //return RedirectToAction(nameof());
-                return RedirectToAction("ArticleView", "Articles");
+                return RedirectToAction("ArticleView", "Articles", new { id = comment.ArticleId });
             }
             ViewData["ArticleId"] = new SelectList(_context.Article, "ArticleId", "Title");
             return View(comment);
