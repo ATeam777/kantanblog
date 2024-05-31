@@ -74,7 +74,7 @@ namespace KantanBlog001.Controllers
 
                 _context.Add(comment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(CommentView));
             }
             ViewData["ArticleId"] = new SelectList(_context.Article, "ArticleId", "Title");
             return View(comment);

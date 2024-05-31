@@ -4,45 +4,50 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>コメント作成</h1>
+<h1 class="tcreate">コメント作成</h1>
 
 @* <h4>Comment</h4> *@
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="tcreate">
         <form asp-action="CommentCreate">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Article.Title" class="control-label"></label>
-                <select asp-for="ArticleId" class="form-control" asp-items="ViewBag.ArticleId"></select>
+                <label class="control-label">紐付くブログタイトル</label>
+                <select asp-for="ArticleId" asp-items="ViewBag.ArticleId"></select>
             
                 @*
                 <div class="form-group">
                 <label asp-for="ArticleId" class="control-label"></label>
                 <select asp-for="ArticleId" class="form-control" asp-items="ViewBag.ArticleId"></select>
                 *@
+
             </div> 
             <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
+                <p>名前</p>
+                <input asp-for="UserName" value="名無しさん＠かんたんブログ" />
+                <span asp-validation-for="UserName"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CommentText" class="control-label"></label>
-                    <textarea asp-for="CommentText" class="form-control" rows="10"></textarea>
-                <span asp-validation-for="CommentText" class="text-danger"></span>
+                <p>コメント</p>
+                <textarea asp-for="CommentText" placeholder="コメントを入力してください。" rows="8"></textarea>
+                <span asp-validation-for="CommentText"></span>
             </div>
             <br>
             <div class="form-group">
-                <input type="submit" value="データ登録" class="btn btn-primary" />
+                <span>
+                    <input type="submit" value="コメント作成" class="input-style2" />
+                </span>
+                <span>
+                    <a asp-controller="Articles" asp-action="UserArticleList" class="input-style3">
+                        記事リストへ戻る
+                    </a>
+                </span>
             </div>
         </form>
     </div>
 </div>
 <br>
-<div>
-    <a asp-action="Index">*** 工事中 ***</a>
-</div>
 
 @section Scripts {
     @{
