@@ -2,6 +2,11 @@
 
 @{
     ViewData["Title"] = "Index";
+
+    int article_id = 0;
+    if (ViewData["ArticleId"] != null)
+        article_id = (int)ViewData["ArticleId"];
+
 }
 
 <div style="text-align: center;">
@@ -12,14 +17,16 @@
 <div class="comment-list-content">
     <br>
     <p class="a-create-comment">
-        <a asp-action="CommentCreate">コメント投稿</a>
+        <a href="@Url.Action("CommentCreate", "Comment", new { articleId = article_id })">
+            コメント投稿
+        </a>
     </p>
     <br>
     @foreach (var item in Model)
     {
 
     @* @Html.DisplayFor(modelItem => item.Article.Title) *@
-
+        
         <div class="comment-list-title">
             @Html.DisplayFor(modelItem => item.UserName)
         </div>
