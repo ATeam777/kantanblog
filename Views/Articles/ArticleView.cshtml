@@ -64,43 +64,39 @@
                 <th>発表者</th>
                 <td></td>
             </tr>
-            <br />
             <tr id="reportDatetime">
                 <th>報告日時</th>
                 <td></td>
             </tr>
-            <br />
             <tr id="targetArea">
                 <th>対象地域</th>
                 <td></td>
             </tr>
-            <br />
             <tr id="today">
                 <th>今日の天気</th>
                 <td></td>
             </tr>
-            <br />
             <tr id="tomorrow">
                 <th>明日の天気</th>
                 <td></td>
             </tr>
-            <br />
             <tr id="dayAfterTomorrow">
                 <th>明後日の天気</th>
                 <td></td>
             </tr>
         </table>
+
        <!-- xxxx年xx月を表示 -->
-    <h1 id="header"></h1>
+        <h1 id="header"></h1>
+        <!-- ボタンクリックで月移動 -->
+        <div id="next-prev-button">
+            <button id="prev" onclick="prev()">‹</button>
+            <button id="next" onclick="next()">›</button>
+        </div>
+        <!-- カレンダー -->
+        <div id="calendar"></div>
 
-    <!-- ボタンクリックで月移動 -->
-    <div id="next-prev-button">
-        <button id="prev" onclick="prev()">‹</button>
-        <button id="next" onclick="next()">›</button>
-    </div>
-
-    <!-- カレンダー -->
-    <div id="calendar"></div>
+        
     </div>
 
 
@@ -111,6 +107,8 @@
     @* リンク未設定 *@
     <a asp-controller="Comment" asp-action="Index">コメント一覧へ</a>
 </div>
+
+
 
 @section Scripts {
     @{
