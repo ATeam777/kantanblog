@@ -518,7 +518,6 @@ body {
 }
 /*真ん中*/
 .center {
-    display: flex;
     justify-content: center;
     /*align-items: center;*/ /*←悪さしてたのはこいつ。交差軸（縦）方向の揃え位置を指定するプロパティ*/
     height: auto;
