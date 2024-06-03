@@ -12,10 +12,6 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/KantanBlog001.styles.css" asp-append-version="true" />
     @* 6/3川村修正部分 *@
-    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
-    <link rel="stylesheet" href="components/loader.css">
-    <script src="components/loader.js"></script>
-    <script src="js/main.js" async></script>
 </head>
 <body>
     <header>
@@ -43,7 +39,7 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Articles" asp-action="BloggerArticleList">記事リスト</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Comment" asp-action="Index">（仮）コメント一覧</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Comment" asp-action="Index">コメント入力</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
