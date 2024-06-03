@@ -32,21 +32,23 @@ namespace KantanBlog001.Controllers
         {
 
             IIncludableQueryable<Comment, Article> applicationDbContext;
-            IQueryable<Comment> comment;
+            //IQueryable<Comment> comment;
             ViewData["ArticleId"] = articleId;
 
             if (articleId == null)
             {
                 //記事IDがない場合、全件表示
                 applicationDbContext = _context.Comment.Include(c => c.Article);
-                return View(await applicationDbContext.ToListAsync());
+                return View(await applicationDbContext.OrderByDescending(o => o.Create_Time).ToListAsync());
             }
             else
             {
                 //記事IDがある場合、該当コメント表示
-                comment = _context.Comment
-                    .Include(c => c.Article).Where(a => a.ArticleId == articleId);
-                return View(await comment.ToListAsync());
+                applicationDbContext = _context.Comment.Include(c => c.Article);
+                return View(
+                    await applicationDbContext.Where(a => a.ArticleId == articleId)
+                            .OrderByDescending(o => o.Create_Time).ToListAsync()
+                    );
 
             }
 

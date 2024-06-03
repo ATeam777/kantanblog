@@ -85,11 +85,11 @@ namespace KantanBlog001.Controllers
 
         // GET: Articles/BloggerArticleList
         // ブロガー管理者：記事一覧
-        //野中 ここでページの表示数を変更できる
         // GET: Articles
         [Authorize]
         public async Task<IActionResult> BloggerArticleList(int? pageNumber)
         {
+            //ここでページの表示数を変更できる
             int pageSize = 5; // 1ページに表示するアイテム数
             
             var articles = _context.Article
