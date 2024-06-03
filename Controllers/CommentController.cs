@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KantanBlog001.Data;
 using KantanBlog001.Models;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace KantanBlog001.Controllers
 {
@@ -19,11 +20,39 @@ namespace KantanBlog001.Controllers
             _context = context;
         }
 
-        // GET: Comment
+        // GET: Comment/Index
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Comment.Include(c => c.Article);
             return View(await applicationDbContext.ToListAsync());
+        }
+
+        // GET: Comment/CommentView
+        public async Task<IActionResult> CommentView(int? articleId)
+        {
+
+            IIncludableQueryable<Comment, Article> applicationDbContext;
+            IQueryable<Comment> comment;
+            ViewData["ArticleId"] = articleId;
+
+            if (articleId == null)
+            {
+                //記事IDがない場合、全件表示
+                applicationDbContext = _context.Comment.Include(c => c.Article);
+                return View(await applicationDbContext.ToListAsync());
+            }
+            else
+            {
+                //記事IDがある場合、該当コメント表示
+                comment = _context.Comment
+                    .Include(c => c.Article).Where(a => a.ArticleId == articleId);
+                return View(await comment.ToListAsync());
+
+            }
+
+            //var applicationDbContext = _context.Comment.Include(c => c.Article);
+            //return View(await applicationDbContext.ToListAsync());
+
         }
 
         // GET: Comment/Details/5
@@ -45,10 +74,17 @@ namespace KantanBlog001.Controllers
             return View(comment);
         }
         // GET: Comment/CommentCreate
-        public IActionResult CommentCreate()
+        public IActionResult CommentCreate(int? articleId)
         {
-            ViewData["ArticleId"] = new SelectList(_context.Article, "ArticleId","Title");
+
+            if (articleId == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["ArticleId"] = articleId;
             return View();
+
         }
 
         // POST: Comment/CommentCreate
@@ -67,7 +103,7 @@ namespace KantanBlog001.Controllers
 
                 _context.Add(comment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("ArticleView", "Articles", new { id = comment.ArticleId });
             }
             ViewData["ArticleId"] = new SelectList(_context.Article, "ArticleId", "Title");
             return View(comment);

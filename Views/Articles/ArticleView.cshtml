@@ -28,20 +28,20 @@
     </div>
 
     <div class="center">
-    <dl>
-        <h3>
-        <dd>@Html.DisplayFor(model => model.Title)</dd>
-        <hr style="height:5px; background-color:#000000;">
-        </h3>
-        <pre style="white-space: pre-wrap;">
-        <dd>@Html.DisplayFor(model => model.Text)</dd>
-        </pre>
-        <pre>
+        <dl class="row">
+            <h3>
+                <dd>@Html.DisplayFor(model => model.Title)</dd>
+                <hr style="height:5px; background-color:#000000;" />
+            </h3>
 
+            <pre style="white-space: pre-wrap;">
+                <dd>@Html.DisplayFor(model => model.Text)</dd>
+            </pre>
 
-        <dt>カテゴリ： @Html.DisplayFor(model => model.Category)</dt>
-        </pre>
-    </dl>
+            <pre>
+                <dt>カテゴリ： @Html.DisplayFor(model => model.Category)</dt>
+            </pre>
+        </dl>
     </div>
 
     <div class="migi">
@@ -84,9 +84,10 @@
     </div>
 </div>
 
-<div style="text-align:center;">
-    @* リンク未設定 *@
-    <a asp-controller="Comment" asp-action="Index">コメント一覧へ</a>
+<div style="text-align: center;">
+    <a href="@Url.Action("CommentView", "Comment", new { articleId = Model.ArticleId })">
+        コメント一覧へ
+    </a>
 </div>
 
 
