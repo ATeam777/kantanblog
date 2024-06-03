@@ -12,24 +12,6 @@
     <div class="tcreate">
         <form asp-action="ArticleEdit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @*
-            <input type="hidden" asp-for="ArticleId" />
-            <div class="form-group">
-                <label asp-for="InputDateTime" class="control-label"></label>
-                <input asp-for="InputDateTime" class="form-control" />
-                <span asp-validation-for="InputDateTime" class="text-danger"></span>
-            </div> 
-            <div>
-                <p>作成日時</p>
-                <input asp-for="Create_Time" />
-                <span asp-validation-for="Create_Time"></span>
-            </div>
-            <div>
-                <p>編集日時</p>
-                <input asp-for="Update_Time" />
-                <span asp-validation-for="Update_Time"></span>
-            </div>
-            *@
             <div>
                 <p>タイトル</p>
                 <input asp-for="Title" placeholder="タイトル" />
