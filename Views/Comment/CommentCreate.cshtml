@@ -13,8 +13,8 @@
         <form asp-action="CommentCreate">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label class="control-label">紐付くブログタイトル</label>
-                @* <select asp-for="ArticleId" asp-items="ViewBag.ArticleId"></select> *@
+                @* <label class="control-label">紐付くブログタイトル</label>
+                 <select asp-for="ArticleId" asp-items="ViewBag.ArticleId"></select> *@
                 <input type="hidden" asp-for="ArticleId"/>
             </div> 
             <div class="form-group">
