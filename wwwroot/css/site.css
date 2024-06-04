@@ -51,6 +51,11 @@ body {
     margin-right: 5%;
 }
 
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> d0c63f02af705712f09832929093bbced277abdf
 /* コメント一覧 */
 .comment-list-content {
     width: 70%;
@@ -62,6 +67,24 @@ body {
     font-size: 18px;
     color: darkgreen;
 }
+<<<<<<< HEAD
+.comment-list-date {
+    font-family: "Yu Gothic Medium", sans-serif;
+    margin-top: 0;
+    font-size: 14px;
+    color: black;
+}
+.comment-list-text {
+    font-family: "Yu Gothic Medium", sans-serif;
+    font-size: 16px;
+    text-indent: 0.5em;
+    margin-bottom: 25px;
+}
+
+
+>>>>>>> Stashed changes
+/*本文へのリンク*/
+=======
 .comment-list-text {
     font-family: "Yu Gothic Medium", sans-serif;
     font-size: 16px;
@@ -70,6 +93,7 @@ body {
     margin-top: 10px;
     margin-bottom: 25px;
 }
+>>>>>>> d0c63f02af705712f09832929093bbced277abdf
 
 
 /*本文へのリンク*/
