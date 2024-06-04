@@ -26,7 +26,7 @@ obj/KantanBlog001.csproj.nuget.dgspec.json
 obj/KantanBlog001.csproj.nuget.g.props
 
 node_modules/*
-
+package-lock.json
 
 *.dll
 *.exe
