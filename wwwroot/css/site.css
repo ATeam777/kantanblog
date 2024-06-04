@@ -50,12 +50,25 @@ body {
     width: 25%;
     margin-right: 5%;
 }
+/*順番入れ替えボタン*/
+.a-order {
+    text-align: right;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.a-order a {
+    color: black;
+    padding: 3px;
+    border-radius: 1%;
+    background-color: gainsboro;
+    text-decoration: none;
+}
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> d0c63f02af705712f09832929093bbced277abdf
+.a-order :hover {
+    color: white;
+    background-color: gray;
+}
+
 /* コメント一覧 */
 .comment-list-content {
     width: 70%;
@@ -79,10 +92,7 @@ body {
     margin-bottom: 25px;
 }
 
-
->>>>>>> Stashed changes
 /*本文へのリンク*/
-=======
 .comment-list-text {
     font-family: "Yu Gothic Medium", sans-serif;
     font-size: 16px;

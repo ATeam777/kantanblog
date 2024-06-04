@@ -12,7 +12,18 @@
     @*新規作成ボタンを消去 *@    
 </p>
 
-
+<div class ="a-order">
+    現在の並び順：
+    @if (ViewData["DateSortParm"].ToString() == "Date")
+    {
+        <a asp-action="UserArticleList" asp-route-sortOrder="@ViewData["DateSortParm"]" >降順</a>
+    }
+    else
+    {
+        <a asp-action="UserArticleList" asp-route-sortOrder="@ViewData["DateSortParm"]" >昇順</a>
+    }
+    
+</div>
 
 <table class="table_design10">
     <thead>
