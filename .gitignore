@@ -10,6 +10,11 @@
 .bin/Debug/*
 .obj/Debug/*
 
+bin/Debug/net8.0/
+bin/Debug/net8.0/*
+ 
+bin/Debug/net8.0/*
+ 
 obj/Debug/
 
 bin/Debug/net8.0/KantanBlog001.pdb
@@ -19,6 +24,9 @@ obj/project.assets.json
 obj/project.nuget.cache
 obj/KantanBlog001.csproj.nuget.dgspec.json
 obj/KantanBlog001.csproj.nuget.g.props
+
+node_modules/*
+
 
 *.dll
 *.exe
