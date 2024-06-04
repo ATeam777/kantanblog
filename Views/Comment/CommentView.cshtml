@@ -30,7 +30,11 @@
         <div class="comment-list-title">
             @Html.DisplayFor(modelItem => item.UserName)
         </div>
-        <div class="comment-list-text"><pre>@Html.DisplayFor(modelItem => item.CommentText)</pre>
+        <div class="comment-list-time">
+            @Html.DisplayFor(modelItem => item.Create_Time)
+        </div>
+        <div class="comment-list-text">
+            <pre style="white-space: pre-wrap;">@Html.DisplayFor(modelItem => item.CommentText)</pre>
         </div>
     }
     <br>

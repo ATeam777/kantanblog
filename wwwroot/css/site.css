@@ -62,6 +62,11 @@ body {
     font-size: 18px;
     color: darkgreen;
 }
+.comment-list-time {
+    font-family: "Yu Gothic Medium", sans-serif;
+    font-size: 14px;
+    color: black;
+}
 .comment-list-text {
     font-family: "Yu Gothic Medium", sans-serif;
     font-size: 16px;
@@ -70,7 +75,9 @@ body {
     margin-top: 10px;
     margin-bottom: 25px;
 }
-
+.comment-list-text pre {
+    white-space: pre-wrap;
+}
 
 /*本文へのリンク*/
 .asp-title a {
