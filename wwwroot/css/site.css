@@ -67,10 +67,8 @@ body {
     font-size: 18px;
     color: darkgreen;
 }
-<<<<<<< HEAD
-.comment-list-date {
+.comment-list-time {
     font-family: "Yu Gothic Medium", sans-serif;
-    margin-top: 0;
     font-size: 14px;
     color: black;
 }
@@ -93,8 +91,6 @@ body {
     margin-top: 10px;
     margin-bottom: 25px;
 }
->>>>>>> d0c63f02af705712f09832929093bbced277abdf
-
 
 /*本文へのリンク*/
 .asp-title a {
