@@ -17,10 +17,16 @@ bin/Debug/net8.0/KantanBlog001.pdb
 bin/Debug/net8.0/KantanBlog001.staticwebassets.runtime.json
 bin/Debug/net8.0/package.json
 
+
 obj/project.assets.json
 obj/project.nuget.cache
 obj/KantanBlog001.csproj.nuget.dgspec.json
 obj/KantanBlog001.csproj.nuget.g.props
+
+node_modules/
+node_modules/*
+
+package-lock.json
 
 *.dll
 *.exe
