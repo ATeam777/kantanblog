@@ -60,24 +60,32 @@ namespace KantanBlog001.Controllers
         // 閲覧者：記事一覧
         //川村：ユーザー専用ページ用のメソッドを追加
         public async Task<IActionResult> UserArticleList(
-            int? pageNumber, string? category, string sortOrder)
+            int? pageNumber, string? category, string? date, string sortOrder)
         {
             //既定の並べ替え順序は昇順("Date"と同じ)
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
 
             // IQueryable<T> を取得
-            IQueryable<Article> articles;
-            if (category == null)
-            {
-                //カテゴリーがない場合、全件検索
-                articles = _context.Article.AsQueryable();
-            }
-            else
+            // 全件検索
+            IQueryable<Article> articles = _context.Article.AsQueryable();
+
+            if (category != null)
             {
                 //カテゴリーが存在する場合、カテゴリ検索を行う
-                articles = _context.Article.AsQueryable()
-                    .Where(a => a.Category == category);
+                articles = articles.Where(a => a.Category == category);
             }
+
+            //日付が存在する場合、該当日付範囲で検索する
+            if (date != null)
+            {
+                //日付
+                DateTime startDate = DateTime.Parse(date);
+                DateTime endDate = DateTime.Parse(date + " 23:59:59");
+
+                //日付検索
+                articles = articles.Where(s => s.Create_Time >= startDate && s.Create_Time <= endDate);
+            }
+
             switch (sortOrder)
             {
                 case "Date":
@@ -90,7 +98,9 @@ namespace KantanBlog001.Controllers
                     articles = articles.OrderByDescending(m => m.Create_Time);
                     break;
             }
+
             int pageSize = 5; // 1ページに表示するアイテム数
+
             // ページ番号に基づいて記事を取得
             var paginatedArticles = await PaginatedList<Article>.CreateAsync(articles.AsNoTracking(), pageNumber ?? 1, pageSize);
 
