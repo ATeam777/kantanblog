@@ -40,22 +40,11 @@
  */
 function add_calendar(wrapper, year, month) {
 
-    //Sample
-    var data = [
-        {
-            date: "2024-6-5",
-            link: "/Articles/UserArticleList?date=2024/06/05"
-        },
-        {
-            date: "2024-6-4",
-            link: "/Articles/UserArticleList?date=2024/06/04"
-        },
-        {
-            date: "2024-5-30",
-            link: "/Articles/UserArticleList?date=2024/05/30"
-        }
-    ];
+    //Jsonにして渡す
+    var data = JSON.parse(document.getElementById('listDate').value);
 
+    //DEBUG
+    //console.log(data);
     // 現在カレンダーが追加されている場合は一旦削除する
     wrapper.textContent = null;
 
@@ -174,8 +163,6 @@ function generate_month_calendar(year, month, linkData) {
         }
         insertData += '<td>';
         var ymd = year + '-' + month + '-' + calendarData[i]['day'];
-
-        console.log(ymd);
 
         for (var j = 0; j < linkData.length; j++) {
             if (linkData[j]['date'] === ymd) {

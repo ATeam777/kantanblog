@@ -10,6 +10,8 @@ using KantanBlog001.Models;
 using KantanBlog001.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Data.SqlClient;
+using System.Text.Json;
+using Newtonsoft.Json.Linq;
 
 namespace KantanBlog001.Controllers
 {
@@ -62,6 +64,7 @@ namespace KantanBlog001.Controllers
         public async Task<IActionResult> UserArticleList(
             int? pageNumber, string? category, string? date, string sortOrder)
         {
+
             //既定の並べ替え順序は昇順("Date"と同じ)
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
 
@@ -338,6 +341,26 @@ namespace KantanBlog001.Controllers
 
             ViewData["categoryCount"] = categoryCount;
 
+            //取得準備
+            DateTime dtNow = DateTime.Now;
+            DateTime startDate2 = DateTime.Parse(dtNow.Year + "/01/01 00:00:00");
+            DateTime endDate2 = DateTime.Parse(dtNow.Year + "/12/31 23:59:59");
+
+            // カレンダーリンク用取得（パラメータは使用しない独自に取得する）
+            List<ArticleDate> listDate = await _context.Article
+                .Where(s => s.Create_Time >= startDate2 && s.Create_Time <= endDate2)
+                //.OrderBy(o => o.Key)
+                .Select(r => new ArticleDate
+                {
+                    date = r.Create_Time.ToString("yyyy-M-d"),
+                    link = "/Articles/UserArticleList?date="
+                            + r.Create_Time.ToString("yyyy/MM/dd")
+                }).ToListAsync();
+
+            // 取得したLISTをJSON文字列に変換
+            var json = JsonSerializer.Serialize(listDate);
+            ViewData["listDate"] = json;
+
             if (article == null)
             {
                 return NotFound();
@@ -345,29 +368,6 @@ namespace KantanBlog001.Controllers
 
             return View(article);
         }
-
-        //// POST: Articles/ArticleView
-        //// To protect from overposting attacks, enable the specific properties you want to bind to.
-        //// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> ArticleView(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var article = await _context.Article
-        //        .FirstOrDefaultAsync(m => m.ArticleId == id);
-        //    if (article == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(article);
-        //}
-
 
         // GET: Articles/Delete/5
         [Authorize]

@@ -6,6 +6,9 @@
 @{
     ViewData["Title"] = "ArticleView";
 
+    // List<CategoryCount> categoryCount = null;
+    // if (ViewData["categoryCount"] != null)
+    //     categoryCount = (List<CategoryCount>)ViewData["categoryCount"];
     List<CategoryCount> categoryCount = null;
     if (ViewData["categoryCount"] != null)
         categoryCount = (List<CategoryCount>)ViewData["categoryCount"];
@@ -28,6 +31,7 @@
     </div>
 
     <div class="center">
+        <input type="hidden" id="listDate" value="@ViewData["listDate"]" />
         <dl class="row">
             <h3>
                 <dd>@Html.DisplayFor(model => model.Title)</dd>
@@ -81,7 +85,7 @@
         </div>
         -->
         <!-- カレンダー -->
-        <div id="calendar"></div>  
+        <div id="calendar"></div>
     </div>
 </div>
 
