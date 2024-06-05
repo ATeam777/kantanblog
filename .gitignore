@@ -1,24 +1,26 @@
 #除外ファイル 一覧
 
 .vs/
-.bin/
-.obj/
+bin/
+obj/
 
-.obj/*
-.bin/*
+obj/*
+bin/*
 
-.bin/Debug/*
-.obj/Debug/*
+bin/Debug/*
+obj/Debug/*
+
+bin/Release/*
+obj/Release/*
 
 bin/Debug/net8.0/
 bin/Debug/net8.0/*
  
 bin/Debug/net8.0/*
- 
-obj/Debug/
 
 bin/Debug/net8.0/KantanBlog001.pdb
 bin/Debug/net8.0/KantanBlog001.staticwebassets.runtime.json
+
 
 obj/project.assets.json
 obj/project.nuget.cache
@@ -27,6 +29,7 @@ obj/KantanBlog001.csproj.nuget.g.props
 
 node_modules/*
 
+package-lock.json
 
 *.dll
 *.exe
