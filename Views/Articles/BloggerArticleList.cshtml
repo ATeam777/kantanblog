@@ -12,7 +12,18 @@
     <a asp-action="ArticleCreate">記事新規作成</a>
 </p>
 
+<div class="a-order">
+    現在の並び順：
+    @if (ViewData["DateSortParm"].ToString() == "Date")
+    {
+        <a asp-action="BloggerArticleList" asp-route-sortOrder="@ViewData["DateSortParm"]">降順</a>
+    }
+    else
+    {
+        <a asp-action="BloggerArticleList" asp-route-sortOrder="@ViewData["DateSortParm"]">昇順</a>
+    }
 
+</div>
 
 <table class="table_design09">
     <thead>

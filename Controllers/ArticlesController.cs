@@ -9,6 +9,7 @@ using KantanBlog001.Data;
 using KantanBlog001.Models;
 using KantanBlog001.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Data.SqlClient;
 
 namespace KantanBlog001.Controllers
 {
@@ -59,9 +60,10 @@ namespace KantanBlog001.Controllers
         // 閲覧者：記事一覧
         //川村：ユーザー専用ページ用のメソッドを追加
         public async Task<IActionResult> UserArticleList(
-            int? pageNumber, string? category)
+            int? pageNumber, string? category, string sortOrder)
         {
-            int pageSize = 5; // 1ページに表示するアイテム数
+            //既定の並べ替え順序は昇順("Date"と同じ)
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
 
             // IQueryable<T> を取得
             IQueryable<Article> articles;
@@ -76,7 +78,19 @@ namespace KantanBlog001.Controllers
                 articles = _context.Article.AsQueryable()
                     .Where(a => a.Category == category);
             }
-
+            switch (sortOrder)
+            {
+                case "Date":
+                    articles = articles.OrderBy(m => m.Create_Time);
+                    break;
+                case "date_desc":
+                    articles = articles.OrderByDescending(m => m.Create_Time);
+                    break;
+                default:
+                    articles = articles.OrderByDescending(m => m.Create_Time);
+                    break;
+            }
+            int pageSize = 5; // 1ページに表示するアイテム数
             // ページ番号に基づいて記事を取得
             var paginatedArticles = await PaginatedList<Article>.CreateAsync(articles.AsNoTracking(), pageNumber ?? 1, pageSize);
 
@@ -87,14 +101,28 @@ namespace KantanBlog001.Controllers
         // ブロガー管理者：記事一覧
         // GET: Articles
         [Authorize]
-        public async Task<IActionResult> BloggerArticleList(int? pageNumber)
+        public async Task<IActionResult> BloggerArticleList(int? pageNumber, string sortOrder)
         {
-            //ここでページの表示数を変更できる
-            int pageSize = 5; // 1ページに表示するアイテム数
+            //既定の並べ替え順序は昇順("Date"と同じ)
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
             
             var articles = _context.Article
                 .AsQueryable().Where(a => a.Email == User.Identity.Name);
 
+            switch (sortOrder)
+            {
+                case "Date":
+                    articles = articles.OrderBy(m => m.Create_Time);
+                    break;
+                case "date_desc":
+                    articles = articles.OrderByDescending(m => m.Create_Time);
+                    break;
+                default:
+                    articles = articles.OrderByDescending(m => m.Create_Time);
+                    break;
+            }
+            //ここでページの表示数を変更できる
+            int pageSize = 5; // 1ページに表示するアイテム数
             // ページ番号に基づいて記事を取得
             var paginatedArticles = await PaginatedList<Article>.CreateAsync(articles.AsNoTracking(), pageNumber ?? 1, pageSize);
 
