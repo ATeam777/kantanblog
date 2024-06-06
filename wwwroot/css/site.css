@@ -438,6 +438,11 @@ body {
     outline: 2px solid gray;
     border-collapse: collapse;
     width: 240px;
+    background-color: #fff;
+}
+
+.tableborder td {
+    width: 14.55%
 }
 
 .tableborder th {
@@ -453,9 +458,6 @@ body {
         background-color: #f2f2f2;
     }
 
-.tableborder td{
-    width: 14.55%
-}
 
 /*日曜日*/
 .tableborder td:first-child {
