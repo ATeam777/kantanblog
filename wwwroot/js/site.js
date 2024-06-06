@@ -75,6 +75,7 @@ function generate_calendar_header(wrapper, year, month) {
     var cHeader = document.createElement('div');
     cHeader.className = 'calendar-header';
 
+
     // 見出しの追加
     var cTitle = document.createElement('div');
     cTitle.className = 'calendar-header__title';
@@ -84,8 +85,10 @@ function generate_calendar_header(wrapper, year, month) {
 
     // 前月ボタンの追加
     var cPrev = document.createElement('button');
-    cPrev.className = 'calendar-header__prev';
-    var cPrevText = document.createTextNode('prev');
+    cPrev.className = 'calendar-header-button';
+    cPrev.id = 'prev';
+    
+    var cPrevText = document.createTextNode('<');
     cPrev.appendChild(cPrevText);
 
     // 前月ボタンをクリックした時のイベント設定
@@ -96,8 +99,9 @@ function generate_calendar_header(wrapper, year, month) {
 
     // 翌月ボタンの追加
     var cNext = document.createElement('button');
-    cNext.className = 'calendar-header__next';
-    var cNextText = document.createTextNode('next');
+    cNext.className = 'calendar-header-button';
+    cNext.id = 'next';
+    var cNextText = document.createTextNode('>');
     cNext.appendChild(cNextText);
 
     // 翌月ボタンをクリックした時のイベント設定

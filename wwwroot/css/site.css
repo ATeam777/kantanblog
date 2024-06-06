@@ -427,6 +427,11 @@ body {
 
 /*カレンダー*/
 /* カレンダーのスタイル */
+.calendar-header__title {
+    font-family: Arial, sans-serif;
+    font-size: 35px;
+}
+
 .tableborder {
     font-family: Arial, sans-serif;
     border-collapse: collapse;
@@ -469,25 +474,22 @@ body {
     background-color: #D65E72;
     color: #fff;
 }
-#next-prev-button {
+
+.calendar-header-button {
     position: relative;
+    cursor: pointer;
+    background: #006494;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 0.5rem 2rem;
+    margin: 1rem 0;
+    border: none;
 }
 
-    #next-prev-button button {
-        cursor: pointer;
-        background: #006494;
-        color: #fff;
-        border-radius: 4px;
-        font-size: 1rem;
-        padding: 0.5rem 2rem;
-        margin: 1rem 0;
-        border: none;
-    }
-
-        #next-prev-button button:hover {
-            background-color: #2a2c70;
-
-        }
+.calendar-header-button:hover {
+    background-color: #2a2c70;
+}
 
 #prev {
     float: left;
