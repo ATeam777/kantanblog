@@ -759,12 +759,13 @@ body {
     }
 
 .left-frills {
-    right: 1320px;
-    top: 31px;
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
 }
-
 .fancy-button.active .left-frills {
-    animation: move-left 0.38s ease-out, width-to-zero 0.38s ease-out;
+animation: move-left 0.38s ease-out, width-to-zero 0.38s ease-out;
 }
 
 .left-frills:before, .left-frills:after {
