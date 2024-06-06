@@ -33,9 +33,10 @@
                     <input type="submit" value="コメント作成" class="input-style2" />
                 </span>
                 <span>
-                    <a asp-controller="Articles" asp-action="UserArticleList" class="input-style3">
+                    <!--<a asp-controller="Articles" asp-action="UserArticleList" >
                         記事リストへ戻る
-                    </a>
+                    </a>-->
+                    <a href="#" onclick="history.back()" return false; class="input-style3">コメントに戻る</a>
                 </span>
             </div>
         </form>

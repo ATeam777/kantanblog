@@ -14,7 +14,7 @@
             let area = weather[0].timeSeries[0].areas[0];
             // 発表者と報告日時の情報を画面に書き出す
             document.getElementById("publishingOffice").lastElementChild.textContent = weather[0].publishingOffice;
-            document.getElementById("reportDatetime").lastElementChild.textContent = weather[0].reportDatetime;
+            //document.getElementById("reportDatetime").lastElementChild.textContent = weather[0].reportDatetime;
             // 特定地域の情報を画面に書き出す
             document.getElementById("targetArea").lastElementChild.textContent = area.area.name;
             document.getElementById("today").lastElementChild.textContent = area.weathers[0];
@@ -208,5 +208,68 @@ function get_month_calendar(year, month) {
             weekdayCount++;
         }
     }
-    return calendarData;
+    return calendar;
 }
+
+
+//星の表現
+window.addEventListener("DOMContentLoaded", () => {
+    // 星を表示するための親要素を取得
+    const stars = document.querySelector(".stars");
+
+    // 星を生成する関数
+    const createStar = () => {
+        const starEl = document.createElement("span");
+        starEl.className = "star";
+        const minSize = 2; // 星の最小サイズを指定
+        const maxSize = 5; // 星の最大サイズを指定
+        const size = Math.random() * (maxSize - minSize) + minSize;
+        starEl.style.width = `${size}px`;
+        starEl.style.height = `${size}px`;
+        starEl.style.left = `${Math.random() * 100}%`;
+        starEl.style.top = `${Math.random() * 100}%`;
+        starEl.style.animationDelay = `${Math.random() * 10}s`;
+        stars.appendChild(starEl);
+    };
+
+    // for文で星を生成する関数を指定した回数呼び出す
+    for (let i = 0; i <= 300; i++) {
+        createStar();
+    }
+});
+
+
+//書き込み風Title表示:野中さん作成
+function autoType(elementClass, typingSpeed) {
+    var thhis = $(elementClass);
+    thhis.css({
+        "position": "relative",
+        "display": "inline-block"
+    });
+    thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+    thhis = thhis.find(".text-js");
+    var text = thhis.text().trim().split('');
+    var amntOfChars = text.length;
+    var newString = "";
+    thhis.text("|");
+    setTimeout(function () {
+        thhis.css("opacity", 1);
+        thhis.prev().removeAttr("style");
+        thhis.text("");
+        for (var i = 0; i < amntOfChars; i++) {
+            (function (i, char) {
+                setTimeout(function () {
+                    newString += char;
+                    thhis.text(newString);
+                }, i * typingSpeed);
+            })(i + 1, text[i]);
+        }
+    }, 1500);
+}
+
+$(document).ready(function () {
+    // Now to start autoTyping just call the autoType function with the 
+    // class of outer div
+    // The second paramter is the speed between each letter is typed.   
+    autoType(".type-js", 200);
+});

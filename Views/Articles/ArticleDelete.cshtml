@@ -4,36 +4,36 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1 class="tcreate">削除ページ</h>
+<h1 class="tcreate">削除ページ</h1>
 
 <h3 class="tcreate">本当に記事を削除しますか？</h3>
 <div class="tcreate">
     <hr />
     <dl>
-        <dt class = "col-sm-2">
+        @* <dt class = "col-sm-2">
             作成日時
-        </dt>
+        </dt> *@
         <!--
         <dd class = "col-sm-10">
             
         </dd>
             -->
-        <dt class = "col-sm-2">
+        <dt>
             タイトル
         </dt>
-        <dd class = "col-sm-10">
+        <dd>
             @Html.DisplayFor(model => model.Title)
         </dd>
-        <dt class = "col-sm-2">
+        <dt>
            カテゴリー
         </dt>
-        <dd class = "col-sm-10">
+        <dd>
             @Html.DisplayFor(model => model.Category)
         </dd>
-        <dt class = "col-sm-2">
+        <dt>
             本文
         </dt>
-        <dd class = "col-sm-10">
+        <dd >
             @Html.DisplayFor(model => model.Text)
         </dd>
        @*  <dt class = "col-sm-2">

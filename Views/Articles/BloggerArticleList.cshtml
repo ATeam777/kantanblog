@@ -4,59 +4,60 @@
     ViewData["Title"] = "Index";
 }
 
-<div style="text-align: center;">
-    <h1>ブロガー専用　記事一覧</h1>
-</div>
-<br>
-<p class="a-create">
-    <a asp-action="ArticleCreate">記事新規作成</a>
-</p>
+<div class="listlayout">
+    <div style="text-align: center;">
+        <h1>ブロガー専用　記事一覧</h1>
+    </div>
+    <br>
+    <p class="btnchangeradius">
+        <a asp-action="ArticleCreate">記事新規作成</a>
+    </p>
 
-<div class="a-order">
-    現在の並び順：
-    @if (ViewData["DateSortParm"].ToString() == "Date")
-    {
-        <a asp-action="BloggerArticleList" asp-route-sortOrder="@ViewData["DateSortParm"]">降順</a>
-    }
-    else
-    {
-        <a asp-action="BloggerArticleList" asp-route-sortOrder="@ViewData["DateSortParm"]">昇順</a>
-    }
-
-</div>
-
-<table class="table_design09">
-    <thead>
-        <tr>
-            <th>タイトル</th>
-            <th>カテゴリー</th>
-            <th>作成日時</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model) {
-            <tr>
-                <td>
-                    <a asp-action="ArticleView" asp-route-id="@item.ArticleId" asp-route-date="@item.Create_Time">@Html.DisplayFor(modelItem => item.Title)</a>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Create_Time)
-                </td>
-                <td>
-                    <a asp-action="ArticleEdit" asp-route-id="@item.ArticleId" class="it-1">編集</a>
-                    <a asp-action="ArticleDelete" asp-route-id="@item.ArticleId" class="it-2">削除</a>
-                </td>
-            </tr>
+    <div class="a-order">
+        現在の並び順：
+        @if (ViewData["DateSortParm"].ToString() == "Date")
+        {
+            <a asp-action="BloggerArticleList" asp-route-sortOrder="@ViewData["DateSortParm"]" class="aobd">降順</a>
         }
-    </tbody>
-</table>
-<br>
-<div class="pagenation">
-    <a asp-action="BloggerArticleList" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-default @(Model.HasPreviousPage ? "" : "disabled")">前へ</a>
-    <a asp-action="BloggerArticleList" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-default @(Model.HasNextPage ? "" : "disabled")">次へ</a>
+        else
+        {
+            <a asp-action="BloggerArticleList" asp-route-sortOrder="@ViewData["DateSortParm"]" class="aob">昇順</a>
+        }
+    </div>
+
+    <table class="table_design09">
+        <thead>
+            <tr>
+                <th>タイトル</th>
+                <th>カテゴリー</th>
+                <th>作成日時</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        <a asp-action="ArticleView" asp-route-id="@item.ArticleId" asp-route-date="@item.Create_Time">@Html.DisplayFor(modelItem => item.Title)</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Create_Time)
+                    </td>
+                    <td>
+                        <a asp-action="ArticleEdit" asp-route-id="@item.ArticleId" class="it-1">編集</a>
+                        <a asp-action="ArticleDelete" asp-route-id="@item.ArticleId" class="it-2">削除</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br>
+    <div class="pagenation">
+        <a asp-action="BloggerArticleList" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-default @(Model.HasPreviousPage ? "" : "disabled")">前へ</a>
+        <a asp-action="BloggerArticleList" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-default @(Model.HasNextPage ? "" : "disabled")">次へ</a>
+    </div>
 </div>
 
