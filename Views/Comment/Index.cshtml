@@ -8,54 +8,17 @@
     <h1>コメント一覧</h1>
 </div>
 
-<p>
-    @* <a asp-action="CommentCreate">新規コメント作成</a> *@
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Article.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CommentText)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Create_Time)
-            </th>
-           @*  <th>
-                @Html.DisplayNameFor(model => model.Update_Time)
-            </th> *@
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Article.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CommentText)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Create_Time)
-            </td>
-         @* <td>
-                @Html.DisplayFor(modelItem => item.Update_Time)
-            </td> *@
-            <td>
-               @*  <a asp-action="Edit" asp-route-id="@item.CommentId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CommentId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CommentId">Delete</a> *@
-            </td>
-        </tr>
+
+    <div class="come-itiran">
+        <div>記事タイトル：@Html.DisplayFor(modelItem => item.Article.Title)</div>
+        <div class="come-itiran2">作成日：@Html.DisplayFor(modelItem => item.Create_Time)</div>
+        <div>
+なまえ：@Html.DisplayFor(modelItem => item.UserName)
+            <div class="balloon"><p>@Html.DisplayFor(modelItem => item.CommentText)</p></div>
+        </div>
+    </div>
+
 }
-    </tbody>
-</table>
+

@@ -28,7 +28,7 @@ html {
     z-index: -20;
     position: absolute;
     display: block;
-    background-color: #fff; /* 星の色 */
+    background-color: white; /* 星の色 */
     border-radius: 50%;
     box-shadow: 0 0 4px 2px rgba(#fcf6e0, 0.5); /* 星の影 */
     opacity: 0;
@@ -62,12 +62,10 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 50px;
-    margin-bottom: 60px;
 }
 
 /* Homeボタン */
 /*記事新規作成ボタン*/
-
 .btnchangeradius {
     /*ボタンの形状*/
     display: inline-block;
@@ -75,7 +73,7 @@ body {
     color: #fff;
     padding: 10px 20px;
     border: 5px double white;
-    
+    text-decoration: none;
     outline: none;
     /*アニメーションの指定*/
     transition: .3s ease-out;
@@ -88,6 +86,53 @@ body {
     /*hoverした際の角丸のアニメーション*/
     .btnchangeradius:hover {
         background: #A3E7FC;
+        border-radius: 20px;
+    }
+
+/*編集ボタン*/
+.btnchangeradius2 {
+    /*ボタンの形状*/
+    display: inline-block;
+    background: #b3cece;
+    color: white;
+    padding: 8px 15px;
+    margin-right:5px;
+    text-decoration: none;
+    outline: none;
+    /*アニメーションの指定*/
+    transition: .2s ease-out;
+}
+
+    .btnchangeradius2 a {
+        text-decoration: none;
+        color: white;
+    }
+    /*角丸に変わる*/
+    /*hoverした際の角丸のアニメーション*/
+    .btnchangeradius2:hover {
+        background: #659483;
+        color: white;
+        border-radius: 20px;
+    }
+.btnchangeradius3 {
+    /*ボタンの形状*/
+    display: inline-block;
+    background: #d4b8bc;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    outline: none;
+    /*アニメーションの指定*/
+    transition: .2s ease-out;
+}
+    .btnchangeradius3 a {
+        text-decoration: none;
+        color: white;
+    }
+    /*角丸に変わる*/
+    /*hoverした際の角丸のアニメーション*/
+    .btnchangeradius3:hover {
+        background: #b18ca0;
         border-radius: 20px;
     }
 
@@ -210,24 +255,7 @@ body {
    
 }
 /*ボタン色　二色あるので後述のtdでは指定しません（一括指定になるため）*/
-.it-1 {
-    font-size: 1.5rem;
-    color: black;
-    border-radius: 2px;
-    padding: 5%;
-    margin-right: 10px;
-    text-decoration: none; /*下線を消す*/
-    background-color: #90a3c8;
-}
-.it-2 {
-    font-size: 1.5rem;
-    color: black;
-    border-radius: 2px;
-    padding: 5%;
-    margin-right: 10px;
-    text-decoration: none; /*下線を消す*/
-    background-color: #ceb59d;
-}
+
 
 /*ページネーション*/
 .pagenation {
@@ -260,31 +288,45 @@ body {
 /*こぴぺ　テーブル*/
 /*記事一覧テーブル全体デザイン*/
 .table_design09 {
-    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
     width: 100%;
     text-align: center;
+    overflow: hidden;
+    /*枠線*/
+    border: double #132932;
+    border-radius: 30px;
 }
 /*テーブル行全体*/
 .table_design09 tr {
-    background-color: white;
+    background-color: #f8fbe8;
 }
 
-  .table_design09 tr:nth-child(even) {
+/*  .table_design09 tr:nth-child(even) {
         background-color: #fff;
-    }
+    }*/
 
     .table_design09 th, .table_design09 td {
         padding: 1em;
+        border-bottom: 1px solid #006494;
     }
 
 /*テーブルヘッダー*/
 .table_design09 thead th {
-    background-color: #006494;
+    background-color: #132932;
     color: #fff;
     font-weight: bold;
     font-size: 1.2rem;
     text-align: center;
 }
+    .table_design09 thead th:first-child {
+        border-top-left-radius: 20px;
+        /*左上の角丸*/
+    }
+    .table_design09 thead th:last-child {
+        border-top-right-radius: 20px;
+        /*右上の角丸*/
+    }
     .table_design09 tbody td {
         font-size: 1.5rem;
     }
@@ -292,138 +334,16 @@ body {
         color: black;
         text-decoration: none;
     }
-    .table_design09 tbody td:last-child :hover {
-        color: white;
-        background-color: #353d36;
-            
+    /*テーブルボディの最後の行のセル*/
+    .table_design09 tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 20px;
+    /*左下の角丸*/ 
+    }
+    .table_design09 tbody tr:last-child td:last-child {
+        border-bottom-right-radius: 20px;
+        /*右下の角丸*/
     }
 
-@media screen and (max-width: 787px) {
-    .table_design09 {
-        border-radius: 0;
-        text-align: left;
-    }
-
-        .table_design09 thead {
-            display: none;
-        }
-
-        .table_design09 tr {
-            background-color: unset;
-        }
-
-        .table_design09 th, .table_design09 td {
-            display: block;
-            border: 0;
-            border-bottom: 1px solid #4d9bc1;
-        }
-
-        .table_design09 tbody th {
-            background: #4d9bc1;
-            color: #fff;
-            text-align: center;
-        }
-
-        .table_design09 td::before {
-            content: attr(data-label);
-            background-color: #e6f1f6;
-            font-weight: bold;
-            
-            display: inline-block;
-            width: 20%;
-            min-width: 4em;
-            text-align: center;
-            margin-right: 0.5em;
-            padding: 4px;
-            border-radius: 100vh;
-        }
-}
-
-
-/*ここからユーザー専用ページのレイアウト*/
-/*記事一覧全体デザイン*/
-.table_design10 {
-    border-collapse: collapse;
-    table-layout: fixed;
-    width: 100%;
-    border-radius: 20px;
-    text-align: center;
-}
-    /*テーブル行全体*/
-    .table_design10 tr {
-        background-color: #ffefe6;
-    }
-
-        .table_design10 tr:nth-child(even) {
-            background-color: #fff;
-        }
-
-    .table_design10 th, .table_design10 td {
-        padding: 1em;
-    }
-
-    /*テーブルヘッダー*/
-    .table_design10 thead th {
-        background-color: #c7988f;
-        color: #fff;
-        font-weight: bold;
-        font-size: 1.2rem;
-        text-align: center;
-    }
-
-    .table_design10 tbody td {
-        font-size: 1.5rem;
-    }
-
-        .table_design10 tbody td a {
-            color: black;
-            text-decoration: none;
-        }
-
-        .table_design10 tbody td:last-child :hover {
-            color: white;
-            background-color: #353d36;
-        }
-
-@media screen and (max-width: 787px) {
-    .table_design10 {
-        border-radius: 0;
-        text-align: left;
-    }
-
-        .table_design10 thead {
-            display: none;
-        }
-
-        .table_design10 tr {
-            background-color: unset;
-        }
-
-        .table_design10 th, .table_design10 td {
-            display: block;
-            border: 0;
-            border-bottom: 1px solid #4d9bc1;
-        }
-
-        .table_design10 tbody th {
-            background: #4d9bc1;
-            color: #fff;
-            text-align: center;
-        }
-
-        .table_design10 td::before {
-            content: attr(data-label);
-            background-color: #e6f1f6;
-            font-weight: bold;
-            display: inline-block;
-            width: 20%;
-            min-width: 4em;
-            text-align: center;
-            margin-right: 0.5em;
-            padding: 4px;
-            border-radius: 100vh;
-        }
-}
 
 /*カレンダー*/
 /* カレンダーのスタイル */
@@ -680,7 +600,7 @@ body {
     padding: 2%;
     margin-inline: 1%;
     background-color: #ffffde; /*←範囲確認用*/
-    border-radius: 3%;
+    border-radius: 30px;
     text-align: left;
     box-shadow: 0 5px 10px 0 #006494b7;
 }
@@ -706,3 +626,53 @@ body {
 .tcreate hr {
     margin-right: 40%;
 }
+
+/*コメン一覧トページ*/
+.come-itiran {
+    flex-direction:column;
+}
+.come-itiran p {
+    padding-left: 20px;
+}
+
+.come-itiran2 {
+    text-align:right;
+    margin-right: 10%;
+}
+.balloon {
+    position: relative;
+    margin: 0 10% 2em 20%;
+    padding: 15px;
+    background: #fff0c6;
+    border-radius: 30px;
+}
+
+    .balloon:before {
+        content: "";
+        position: absolute;
+        left: -50px;
+        width: 18px;
+        height: 18px;
+        bottom: 70%;
+        background: #fff0c6;
+        border-radius: 50%;
+    }
+
+    .balloon:after {
+        content: "";
+        position: absolute;
+        left: -30px;
+        width: 25px;
+        height: 30px;
+        bottom: 40%;
+        background: #fff0c6;
+        border-radius: 50%;
+    }
+
+    .balloon p {
+        margin: 0;
+        padding: 0;
+        white-space: pre-wrap;
+        display:flex;
+    }
+

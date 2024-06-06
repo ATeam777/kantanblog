@@ -111,7 +111,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const starEl = document.createElement("span");
         starEl.className = "star";
         const minSize = 2; // 星の最小サイズを指定
-        const maxSize = 5; // 星の最大サイズを指定
+        const maxSize = 6; // 星の最大サイズを指定
         const size = Math.random() * (maxSize - minSize) + minSize;
         starEl.style.width = `${size}px`;
         starEl.style.height = `${size}px`;
@@ -122,7 +122,7 @@ window.addEventListener("DOMContentLoaded", () => {
     };
 
     // for文で星を生成する関数を指定した回数呼び出す
-    for (let i = 0; i <= 300; i++) {
+    for (let i = 0; i <= 400; i++) {
         createStar();
     }
 });
@@ -161,4 +161,22 @@ $(document).ready(function () {
     // class of outer div
     // The second paramter is the speed between each letter is typed.   
     autoType(".type-js", 200);
+});
+
+
+//コメントを三点リーダーで省略
+document.addEventListener("DOMContentLoaded", function () {
+    function truncateText(element, maxLength) {
+        let truncated = element.innerText;
+
+        if (truncated.length > maxLength) {
+            truncated = truncated.substr(0, maxLength) + '...';
+        }
+        element.innerText = truncated;
+    }
+
+    const elements = document.querySelectorAll('.balloon');
+    elements.forEach(function (element) {
+        truncateText(element, 30); // 最大100文字まで表示
+    });
 });
