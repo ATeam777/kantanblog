@@ -165,9 +165,21 @@ function generate_month_calendar(year, month, linkData) {
         if (calendarData[i]['weekday'] <= 0) {
             insertData += '<tr>';
         }
-        insertData += '<td  class=\'thtdborder\'>';
+
         var ymd = year + '-' + month + '-' + calendarData[i]['day'];
 
+        //今日の日付を取得
+        var now = new Date();
+        var formattedDate = now.toLocaleDateString('ja-JP');
+        var repDate = formattedDate.replaceAll('/','-');
+        
+        if (ymd == repDate) {
+            insertData += '<td class=\'tableborder today\'>';
+        } else {
+            insertData += '<td class=\'thtdborder\'>';
+        }
+
+        //リンク処理
         for (var j = 0; j < linkData.length; j++) {
             if (linkData[j]['date'] === ymd) {
                 insertData += '<a href="' + linkData[j]['link'] + '">' + calendarData[i]['day'] + '</a>';
@@ -177,7 +189,9 @@ function generate_month_calendar(year, month, linkData) {
                 insertData += calendarData[i]['day'];
             }
         }
+        // ----------------------
         insertData += '</td>';
+
         if (calendarData[i]['weekday'] >= 6) {
             insertData += '</tr>';
         }

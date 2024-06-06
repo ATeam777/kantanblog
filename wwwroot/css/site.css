@@ -432,16 +432,12 @@ body {
     font-size: 35px;
 }
 
-.tableborder {
-    font-family: Arial, sans-serif;
-    border-collapse: collapse;
-    width: 60%;
-}
 
 .tableborder {
+    font-family: Arial, sans-serif;
     outline: 2px solid gray;
     border-collapse: collapse;
-    width: 100%;
+    width: 240px;
 }
 
 .tableborder th {
@@ -457,6 +453,10 @@ body {
         background-color: #f2f2f2;
     }
 
+.tableborder td{
+    width: 14.55%
+}
+
 /*日曜日*/
 .tableborder td:first-child {
     color: red;
@@ -470,7 +470,7 @@ body {
     color: gray;
 }
 /*本日*/
-.tableborder td.today {
+.tableborder.today {
     background-color: #D65E72;
     color: #fff;
 }
