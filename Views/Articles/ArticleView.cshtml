@@ -6,12 +6,9 @@
 @{
     ViewData["Title"] = "ArticleView";
 
-    // List<CategoryCount> categoryCount = null;
-    // if (ViewData["categoryCount"] != null)
-    //     categoryCount = (List<CategoryCount>)ViewData["categoryCount"];
-    List<CategoryCount> categoryCount = null;
+    List<CategoryCount>? categoryCount = null;
     if (ViewData["categoryCount"] != null)
-        categoryCount = (List<CategoryCount>)ViewData["categoryCount"];
+        categoryCount = (List<CategoryCount>?)ViewData["categoryCount"];
 
 }
 

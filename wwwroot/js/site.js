@@ -141,14 +141,14 @@ function generate_month_calendar(year, month, linkData) {
 
     // カレンダーの要素を生成
     var cTable = document.createElement('table');
-    cTable.className = 'calendar-table';
+    cTable.className = 'tableborder';
 
     var insertData = '';
     // 曜日部分の生成
     insertData += '<thead>';
-    insertData += '<tr>';
+    insertData += '<tr  class=\'dayOfWeek\'>';
     for (var i = 0; i < weekdayData.length; i++) {
-        insertData += '<th>';
+        insertData += '<th class=\'thtdborder\'>';
         insertData += weekdayData[i];
         insertData += '</th>';
     }
@@ -161,7 +161,7 @@ function generate_month_calendar(year, month, linkData) {
         if (calendarData[i]['weekday'] <= 0) {
             insertData += '<tr>';
         }
-        insertData += '<td>';
+        insertData += '<td  class=\'thtdborder\'>';
         var ymd = year + '-' + month + '-' + calendarData[i]['day'];
 
         for (var j = 0; j < linkData.length; j++) {
