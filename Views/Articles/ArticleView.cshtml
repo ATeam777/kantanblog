@@ -17,14 +17,14 @@
 
     <div class="hidari">
         <h6><b>カテゴリー一覧</b></h6>
-        <ui>
+        <ul>
             @foreach (var item in categoryCount)
             {
-                <a href="@Url.Action("UserArticleList", "Articles", new { category = item.Category })">
+                <a href="@Url.Action("UserArticleList", "Articles", new { category = item.Category }) " class="category">
                     <li>@item.Category (@item.CategoryGroupCount)</li>
                 </a>
             }
-        </ui>
+        </ul>
     </div>
 
     <div class="center">
@@ -50,10 +50,10 @@
                 <th>発表者</th>
                 <td></td>
             </tr>
-            <tr id="reportDatetime">
+            <!--<tr id="reportDatetime">
                 <th>報告日時</th>
                 <td></td>
-            </tr>
+            </tr>-->
             <tr id="targetArea">
                 <th>対象地域</th>
                 <td></td>
@@ -83,9 +83,9 @@
         <div id="calendar"></div>  
     </div>
 </div>
-
+<br />
 <div style="text-align: center;">
-    <a href="@Url.Action("CommentView", "Comment", new { articleId = Model.ArticleId })">
+    <a href="@Url.Action("CommentView", "Comment", new { articleId = Model.ArticleId })" class="btnchangeradius">
         コメント一覧へ
     </a>
 </div>
