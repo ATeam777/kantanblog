@@ -204,8 +204,14 @@ body {
 
 /* コメント一覧 */
 .comment-list-content {
-    width: 70%;
-    margin: 0 auto;
+    min-height: 300px;
+    width: 80%;
+    padding: 2%;
+    margin-left: 10%;
+    background-color: #ffffde;
+    border-radius: 30px;
+    text-align: left;
+    box-shadow: 0 5px 10px 0 #006494b7;
 }
 .comment-list-title {
     font-family: "Yu Gothic Medium", sans-serif;
@@ -702,6 +708,15 @@ body {
     margin-bottom: 5px;
     font-size: 1.2rem;
 }
+    .come-kijideco a {
+        text-decoration: none;
+        color: black;
+    }
+    .come-kijideco a:hover {
+        text-decoration: none;
+        color: black;
+        background-color: #aaf2ee73;
+    }
 
 
 /*投稿ボタン*/

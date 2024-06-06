@@ -9,39 +9,34 @@
 
 }
 
-<div style="text-align: center;">
-    <h1>コメント一覧</h1>
-</div>
+    <div style="text-align: center;">
+        <h1>コメント一覧</h1>
+    </div>
 
+    <div class="comment-list-content">
+        @foreach (var item in Model)
+        {
 
-<div class="comment-list-content">
-    <br>
-    <p class="a-create-comment">
-        <a href="@Url.Action("CommentCreate", "Comment", new { articleId = article_id })">
-            コメント投稿
-        </a>
-    </p>
-    <br>
-    @foreach (var item in Model)
-    {
-
-    @* @Html.DisplayFor(modelItem => item.Article.Title) *@
+        @* @Html.DisplayFor(modelItem => item.Article.Title) *@
        
-        <div class="comment-list-title">
-            @Html.DisplayFor(modelItem => item.UserName)
-        </div>
-        <div class="comment-list-time">
-            @Html.DisplayFor(modelItem => item.Create_Time)
-        </div>
-        <div class="comment-list-text">
-            <pre style="white-space: pre-wrap;">@Html.DisplayFor(modelItem => item.CommentText)</pre>
-        </div>
-    }
-    <br>
-    <p class="a-create-comment">
-        <!--<a asp-controller="Articles" asp-action="UserArticleList">記事リストに戻る</a>-->
-        <a href="#" onclick="history.back()" return false;>記事に戻る</a>
-    </p>
-</div>
+            <div class="comment-list-title">
+                @Html.DisplayFor(modelItem => item.UserName)
+            </div>
+            <div class="comment-list-time">
+                @Html.DisplayFor(modelItem => item.Create_Time)
+            </div>
+            <div class="comment-list-text">
+                <pre style="white-space: pre-wrap;">@Html.DisplayFor(modelItem => item.CommentText)</pre>
+            </div>
+        }
 
+    </div>
+
+
+<div style="text-align:right; margin-inline:10%;margin-top:1%;"><!--cssのファイルに記述するとうまくいかないので直に書いてます-->
+    <a href="@Url.Action("CommentCreate", "Comment", new { articleId = article_id })" class="btnchangeradius2">
+        コメント投稿
+    </a>
+    <a href="#" onclick="history.back()" return false; class="btnchangeradius2">記事に戻る</a>
+</div>
 

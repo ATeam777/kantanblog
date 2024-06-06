@@ -4,27 +4,26 @@
     ViewData["Title"] = "Index";
 }
 
-<div style="text-align: center;">
-    <h1>コメント一覧</h1>
-</div>
-
-
-@foreach (var item in Model) {
-
-    <div class="come-itiran">
-        <div class="come-kijideco">記事タイトル：@Html.DisplayFor(modelItem => item.Article.Title)</div>
-        <div >
-            <div class="come-deco">
-                <p>なまえ：@Html.DisplayFor(modelItem => item.UserName)</p>
-            </div>
-            <div class="balloon">
-                <p>@Html.DisplayFor(modelItem => item.CommentText)</p>
-            </div>
-        </div>
-        <div class="come-itiran2">
-            作成日：@Html.DisplayFor(modelItem => item.Create_Time) <a asp-action="Delete" asp-route-id="@item.CommentId">削除</a>
-        </div>
+    <div style="text-align: center;">
+        <h1>コメント一覧</h1>
     </div>
 
-}
+
+    @foreach (var item in Model) {
+
+        <div class="come-itiran">
+            <div class="come-kijideco">記事タイトル：<a asp-controller="Articles" asp-action="ArticleView" asp-route-id="@item.ArticleId" >@Html.DisplayFor(modelItem => item.Article.Title)</a></div>
+            <div >
+                <div class="come-deco">
+                    <p>なまえ：@Html.DisplayFor(modelItem => item.UserName)</p>
+                </div>
+                <div class="balloon">
+                    <p>@Html.DisplayFor(modelItem => item.CommentText)</p>
+                </div>
+            </div>
+            <div class="come-itiran2">
+                作成日：@Html.DisplayFor(modelItem => item.Create_Time) <a asp-action="Delete" asp-route-id="@item.CommentId">削除</a>
+            </div>
+        </div>
+    }
 
