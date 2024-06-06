@@ -1,9 +1,0 @@
-{
-  "version": "1.0.0",
-  "name": "asp.net",
-  "private": true,
-  "devDependencies": {
-    "eslint": "9.4.0",
-    "mysql": "2.18.1"
-  }
-}
