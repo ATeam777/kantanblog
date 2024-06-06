@@ -16,16 +16,16 @@
         現在の並び順：
         @if (ViewData["DateSortParm"].ToString() == "Date")
         {
-            <a asp-action="UserArticleList" asp-route-sortOrder="@ViewData["DateSortParm"]" >降順</a>
+            <a asp-action="UserArticleList" asp-route-sortOrder="@ViewData["DateSortParm"]" class="aobd">降順</a>
         }
         else
         {
-            <a asp-action="UserArticleList" asp-route-sortOrder="@ViewData["DateSortParm"]" >昇順</a>
+            <a asp-action="UserArticleList" asp-route-sortOrder="@ViewData["DateSortParm"]" class="aob">昇順</a>
         }
     
     </div>
 
-    <table class="table_design10">
+    <table class="table_design09">
         <thead>
             <tr>
                 <th>タイトル</th>
