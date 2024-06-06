@@ -543,7 +543,7 @@ body {
     
 
 
-
+/*使用見送りのCSS*/
 .input-style2 {
     text-align: center;
     font-size: 20px;
@@ -639,9 +639,20 @@ body {
     text-align:right;
     margin-right: 10%;
 }
+
+.come-itiran2 a {
+    text-decoration: none;
+    color: black;
+}
+    .come-itiran2 a:hover {
+        text-decoration: none;
+        color: black;
+        background-color: #aaf2ee73;
+    }
+
 .balloon {
     position: relative;
-    margin: 0 10% 2em 20%;
+    margin: 0 10% 0 20%;
     padding: 15px;
     background: #fff0c6;
     border-radius: 30px;
@@ -676,3 +687,180 @@ body {
         display:flex;
     }
 
+.come-deco {
+    margin-left:10%;
+    margin-bottom: 1%;
+    font-weight:bold;
+    font-size:1.2rem;
+}
+.come-kijideco {
+    margin-left: 10%;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+
+/*投稿ボタン*/
+
+
+
+.button {
+    background: #f66a6a;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    /*font-size: 1.9em;*/
+    font-size: 20px;
+    /*letter-spacing: .2px;*/
+    /*line-height: 65px;*/
+    text-align: center;
+/*    text-transform: uppercase;
+    user-select: none;*/
+    /*height: 65px;
+    width: 150px;*/
+    /*もとのスタイル*/
+    margin: 1%;
+    padding-block: 2px;
+    padding-inline: 1%;
+}
+
+    .button:hover {
+        background: #f76e6e;
+    }
+
+    .button:active {
+        box-shadow: inset 0px 2px 8px -1px #cc5c5c;
+    }
+
+.fancy-button {
+    margin: auto;
+    position: relative;
+}
+
+.frills, .frills:after, .frills:before {
+    position: absolute;
+    background: #f66a6a;
+    border-radius: 4px;
+    height: 8px;
+}
+
+    .frills:after, .frills:before {
+        content: "";
+        display: block;
+    }
+
+    .frills:before {
+        bottom: 45px;
+    }
+
+    .frills:after {
+        top: 45px;
+    }
+
+.left-frills {
+    right: 1320px;
+    top: 31px;
+}
+
+.fancy-button.active .left-frills {
+    animation: move-left 0.38s ease-out, width-to-zero 0.38s ease-out;
+}
+
+.left-frills:before, .left-frills:after {
+    left: 15px;
+}
+
+.fancy-button.active .left-frills:before {
+    animation: width-to-zero 0.38s ease-out, move-up 0.38s ease-out;
+}
+
+.fancy-button.active .left-frills:after {
+    animation: width-to-zero 0.38s ease-out, move-down 0.38s ease-out;
+}
+
+.right-frills {
+    left: 164px;
+    top: 31px;
+}
+
+.fancy-button.active .right-frills {
+    animation: move-right 0.38s ease-out, width-to-zero 0.38s ease-out;
+}
+
+.right-frills:before, .right-frills:after {
+    right: 15px;
+}
+
+.fancy-button.active .right-frills:before {
+    animation: width-to-zero 0.38s ease-out, move-up 0.38s ease-out;
+}
+
+.fancy-button.active .right-frills:after {
+    animation: width-to-zero 0.38s ease-out, move-down 0.38s ease-out;
+}
+
+.left-frills:before, .right-frills:after {
+    transform: rotate(34deg);
+}
+
+.left-frills:after, .right-frills:before {
+    transform: rotate(-34deg);
+}
+
+@keyframes move-left {
+    0% {
+        transform: none;
+    }
+
+    65% {
+        transform: translateX(-80px);
+    }
+
+    100% {
+        transform: translateX(-80px);
+    }
+}
+
+@keyframes move-right {
+    0% {
+        transform: none;
+    }
+
+    65% {
+        transform: translateX(80px);
+    }
+
+    100% {
+        transform: translateX(80px);
+    }
+}
+
+@keyframes width-to-zero {
+    0% {
+        width: 38px;
+        100%
+
+{
+    width: 8px;
+}
+
+}
+
+@keyframes move-up {
+    0% {
+    }
+
+    100% {
+        bottom: 69.75px;
+    }
+}
+
+@keyframes move-down {
+    0% {
+    }
+
+    100% {
+        top: 69.75px;
+    }
+}

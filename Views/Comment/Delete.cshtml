@@ -4,48 +4,43 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<h1 class="tcreate">コメント削除ページ</h1>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Comment</h4>
+
+<h3 class="tcreate">本当にコメントを削除しますか？</h3>
+<div class="tcreate">
+
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Article)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Article.Text)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.UserName)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.UserName)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CommentText)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CommentText)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Create_Time)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Create_Time)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Update_Time)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Update_Time)
-        </dd>
+
     </dl>
-    
+
     <form asp-action="Delete">
-        <input type="hidden" asp-for="CommentId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <span><input type="submit" value="削除" class="input-style2"></span>
+        <span><a asp-action="Index" class="input-style3">コメント管理に戻る</a></span>
     </form>
 </div>

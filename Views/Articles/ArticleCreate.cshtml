@@ -28,7 +28,11 @@
                 <span asp-validation-for="Text"></span>
             </div>
             <div>
-                <span><input type="submit" value="投稿" class="input-style2" /></span>
+                @* <span><input type="submit" value="投稿" class="input-style2" /></span> *@
+                <div class="fancy-button">
+                    <div class="left-frills frills"></div>
+                    <button type="submit" class="button">投稿</button>
+                <div class="right-frills frills"></div>
                 <span><a asp-action="BloggerArticleList" class="input-style3">リストへ戻る</a></span>
             </div>
         </form>

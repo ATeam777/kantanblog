@@ -12,11 +12,17 @@
 @foreach (var item in Model) {
 
     <div class="come-itiran">
-        <div>記事タイトル：@Html.DisplayFor(modelItem => item.Article.Title)</div>
-        <div class="come-itiran2">作成日：@Html.DisplayFor(modelItem => item.Create_Time)</div>
-        <div>
-なまえ：@Html.DisplayFor(modelItem => item.UserName)
-            <div class="balloon"><p>@Html.DisplayFor(modelItem => item.CommentText)</p></div>
+        <div class="come-kijideco">記事タイトル：@Html.DisplayFor(modelItem => item.Article.Title)</div>
+        <div >
+            <div class="come-deco">
+                <p>なまえ：@Html.DisplayFor(modelItem => item.UserName)</p>
+            </div>
+            <div class="balloon">
+                <p>@Html.DisplayFor(modelItem => item.CommentText)</p>
+            </div>
+        </div>
+        <div class="come-itiran2">
+            作成日：@Html.DisplayFor(modelItem => item.Create_Time) <a asp-action="Delete" asp-route-id="@item.CommentId">削除</a>
         </div>
     </div>
 

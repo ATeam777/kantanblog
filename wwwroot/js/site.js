@@ -180,3 +180,15 @@ document.addEventListener("DOMContentLoaded", function () {
         truncateText(element, 30); // 最大100文字まで表示
     });
 });
+
+
+//投稿ボタンの動き
+$(function () {
+    $(".button").mousedown(function () {
+        var fancyButton = $(this).closest('.fancy-button');
+        fancyButton.bind('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function () {
+            fancyButton.removeClass('active');
+        })
+        fancyButton.addClass("active");
+    });
+});
