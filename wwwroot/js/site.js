@@ -208,7 +208,7 @@ function get_month_calendar(year, month) {
             weekdayCount++;
         }
     }
-    return calendar;
+    return calendarData;
 }
 
 
