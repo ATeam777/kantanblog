@@ -12,7 +12,6 @@
     <div style="text-align: center;">
         <h1>コメント一覧</h1>
     </div>
-
     <div class="comment-list-content">
         @foreach (var item in Model)
         {
@@ -31,7 +30,6 @@
         }
 
     </div>
-
 
 <div style="text-align:right; margin-inline:10%;margin-top:1%;"><!--cssのファイルに記述するとうまくいかないので直に書いてます-->
     <a href="@Url.Action("CommentCreate", "Comment", new { articleId = article_id })" class="btnchangeradius2">
