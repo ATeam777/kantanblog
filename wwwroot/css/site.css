@@ -3,6 +3,7 @@ html {
     position: relative;
     min-height: 100%;
     width: 100%;
+    scroll-behavior: smooth;
 }
 
 @media (min-width: 768px) {
@@ -260,8 +261,6 @@ body {
     text-decoration: none;/*下線を消す*/
    
 }
-/*ボタン色　二色あるので後述のtdでは指定しません（一括指定になるため）*/
-
 
 /*ページネーション*/
 .pagenation {
@@ -778,11 +777,13 @@ body {
     }
 
 .left-frills {
-    right: 1320px;
-    top: 31px;
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.fancy-button.active .left-frills {
+    .fancy-button.active .left-frills {
     animation: move-left 0.38s ease-out, width-to-zero 0.38s ease-out;
 }
 
@@ -799,6 +800,7 @@ body {
 }
 
 .right-frills {
+    position: absolute;
     left: 164px;
     top: 31px;
 }
@@ -858,11 +860,11 @@ body {
 @keyframes width-to-zero {
     0% {
         width: 38px;
-        100%
-
-{
-    width: 8px;
-}
+    }
+    100%
+    {
+        width: 8px;
+    }
 
 }
 
@@ -882,4 +884,12 @@ body {
     100% {
         top: 69.75px;
     }
+}
+
+.c-bottom {
+    margin-left: 50%;
+    background-color: #b3cece;
+    border-radius: 20px;
+    text-decoration: none;
+    color:black;
 }

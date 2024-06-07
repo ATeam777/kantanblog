@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="come-itiran2">
-                作成日：@Html.DisplayFor(modelItem => item.Create_Time) <a asp-action="Delete" asp-route-id="@item.CommentId">削除</a>
+                作成日：@Html.DisplayFor(modelItem => item.Create_Time) <a asp-controller="Comment" asp-action="Delete" asp-route-id="@item.CommentId">削除</a>
             </div>
         </div>
     }
