@@ -9,9 +9,9 @@
 
 }
 
-    <div style="text-align: center;">
-        <h1>コメント一覧</h1>
-    </div>
+<div style="text-align: center;">
+    <h1>コメント覧</h1>
+</div>
 
     <div class="comment-list-content">
         @foreach (var item in Model)
@@ -19,18 +19,22 @@
 
         @* @Html.DisplayFor(modelItem => item.Article.Title) *@
        
-            <div class="comment-list-title">
-                @Html.DisplayFor(modelItem => item.UserName)
-            </div>
-            <div class="comment-list-time">
-                @Html.DisplayFor(modelItem => item.Create_Time)
-            </div>
-            <div class="comment-list-text">
-                <pre style="white-space: pre-wrap;">@Html.DisplayFor(modelItem => item.CommentText)</pre>
-            </div>
-        }
-
-    </div>
+        <div class="comment-list-title">
+            @Html.DisplayFor(modelItem => item.UserName)
+        </div>
+        <div class="comment-list-time">
+            @Html.DisplayFor(modelItem => item.Create_Time)
+        </div>
+        <div class="comment-list-text">
+            <pre style="white-space: pre-wrap;">@Html.DisplayFor(modelItem => item.CommentText)</pre>
+        </div>
+    }
+    <br>
+    <p class="a-create-comment">
+        <!--<a asp-controller="Articles" asp-action="UserArticleList">記事リストに戻る</a>-->
+        <a href="#" onclick="history.back()" return false;>記事に戻る</a>
+    </p>
+</div>
 
 
 <div style="text-align:right; margin-inline:10%;margin-top:1%;"><!--cssのファイルに記述するとうまくいかないので直に書いてます-->
